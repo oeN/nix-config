@@ -1,17 +1,5 @@
 { pkgs, lib, ... }:
 {
-  # Nix configuration ------------------------------------------------------------------------------
-
-  nix.binaryCaches = [
-    "https://cache.nixos.org/"
-  ];
-  nix.binaryCachePublicKeys = [
-    "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-  ];
-  nix.trustedUsers = [
-    "@admin"
-  ];
-  users.nix.configureBuildUsers = true;
 
   # Enable experimental nix command and flakes
   # nix.package = pkgs.nixUnstable;
@@ -32,7 +20,7 @@
   programs.nix-index.enable = true;
 
   # Fonts
-  fonts.enableFontDir = true;
+  fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [
      recursive
      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
@@ -45,4 +33,36 @@
   # Add ability to used TouchID for sudo authentication
   security.pam.enableSudoTouchIdAuth = true;
 
+  # Dock and Mission Control
+  system.defaults.dock = {
+    autohide = true;
+    expose-group-by-app = false;
+    mru-spaces = false;
+    tilesize = 128;
+    # Disable all hot corners
+    wvous-bl-corner = 1;
+    wvous-br-corner = 1;
+    wvous-tl-corner = 1;
+    wvous-tr-corner = 1;
+  };
+
+  # Finder
+  system.defaults.finder = {
+    FXEnableExtensionChangeWarning = true;
+  };
+
+  system.defaults.NSGlobalDomain = {
+    "com.apple.trackpad.scaling" = 3.0;
+    AppleInterfaceStyleSwitchesAutomatically = true;
+    AppleMeasurementUnits = "Centimeters";
+    AppleMetricUnits = 1;
+    AppleShowScrollBars = "Automatic";
+    AppleTemperatureUnit = "Celsius";
+    InitialKeyRepeat = 15;
+    KeyRepeat = 2;
+    NSAutomaticCapitalizationEnabled = false;
+    NSAutomaticDashSubstitutionEnabled = false;
+    NSAutomaticPeriodSubstitutionEnabled = false;
+    _HIHideMenuBar = false;
+  };
 }

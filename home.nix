@@ -3,7 +3,15 @@
 {
   home.stateVersion = "23.05";
 
-  # https://github.com/malob/nixpkgs/blob/master/home/default.nix
+  home.packages = with pkgs; [
+    # Some basics
+    coreutils
+    curl
+    wget
+
+    # Dev stuff
+    jq
+  ];
 
   # Direnv, load and unload environment variables depending on the current directory.
   # https://direnv.net
@@ -49,19 +57,15 @@
     };
   };
 
+  programs.tmux = {
+    enable = true;
+    enablePowerline = true;
+  };
+
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
   };
 
-  home.packages = with pkgs; [
-    # Some basics
-    coreutils
-    curl
-    wget
-
-    # Dev stuff
-    jq
-  ];
-
+  programs.vscode.enable = true;
 }

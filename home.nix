@@ -16,6 +16,12 @@
   programs.htop.enable = true;
   programs.htop.settings.show_program_path = true;
 
+  programs.alacritty = {
+    enable = true;
+    settings.font.normal.family = "JetBrainsMono Nerd Font";
+    settings.font.size = 16;
+  };
+
   home.packages = with pkgs; [
     # Some basics
     coreutils

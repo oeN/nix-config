@@ -44,6 +44,7 @@
           }
         ];
       };
+      Diomedes-Virtual-Machine = Applin;
     };
  };
 }

@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  home.stateVersion = "22.05";
+  home.stateVersion = "23.05";
 
   # https://github.com/malob/nixpkgs/blob/master/home/default.nix
 
@@ -20,6 +20,26 @@
     enable = true;
     settings.font.normal.family = "JetBrainsMono Nerd Font";
     settings.font.size = 16;
+  };
+
+  programs.bat.enable = true;
+  programs.bat.config.theme = "OneDark";
+
+  programs.fzf.enable = true;
+  programs.fzf.enableZshIntegration = true;
+
+  programs.git.enable = true;
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    enableAutoSuggestions = true;
+    enableSyntaxHighlighting = true;
+  };
+
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   home.packages = with pkgs; [

@@ -59,7 +59,10 @@
 
   programs.tmux = {
     enable = true;
-    enablePowerline = true;
+    clock24 = true;
+    keyMode = "vi";
+    mouse = true;
+    terminal = "screen-256color";
   };
 
   programs.starship = {

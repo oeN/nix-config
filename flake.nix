@@ -1,5 +1,5 @@
 {
-  description = "Jun's darwin system";
+  description = "oeN's darwin system";
 
   inputs = {
     # Package sets
@@ -37,14 +37,21 @@
           home-manager.darwinModules.home-manager
           {
             nixpkgs = nixpkgsConfig;
+
             # `home-manager` config
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.diomedet = import ./home.nix;
+            users.users.diomedet.home = "/Users/diomedet";
+            home-manager.users.diomedet = import ./home/diomedet.nix;
           }
         ];
       };
       Diomedes-Virtual-Machine = Applin;
+      # Appletun = Applin.override {
+      #   primaryUserDefaults.override {
+      #     nixConfigDirectory = "/Volumes/T7/diomedet/.config/nixpkgs";
+      #   }
+      # }
     };
  };
 }

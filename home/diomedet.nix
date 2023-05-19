@@ -2,6 +2,9 @@
 
 {
   home.stateVersion = "23.05";
+  imports = [
+    ./modules/git.nix
+  ];
 
   home.packages = with pkgs; [
     # Some basics
@@ -36,7 +39,6 @@
   programs.fzf.enable = true;
   programs.fzf.enableZshIntegration = true;
 
-  programs.git.enable = true;
 
   programs.zsh = {
     enable = true;

@@ -27,12 +27,6 @@
   programs.htop.enable = true;
   programs.htop.settings.show_program_path = true;
 
-  programs.alacritty = {
-    enable = true;
-    settings.font.normal.family = "JetBrainsMono Nerd Font";
-    settings.font.size = 16;
-  };
-
   programs.bat.enable = true;
   programs.bat.config.theme = "OneDark";
 

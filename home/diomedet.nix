@@ -4,6 +4,7 @@
   home.stateVersion = "23.05";
   imports = [
     ./modules/git.nix
+    ./modules/alacritty
   ];
 
   home.packages = with pkgs; [
@@ -28,7 +29,7 @@
   programs.htop.settings.show_program_path = true;
 
   programs.bat.enable = true;
-  programs.bat.config.theme = "OneDark";
+  programs.bat.config.theme = "TwoDark";
 
   programs.fzf.enable = true;
   programs.fzf.enableZshIntegration = true;
@@ -43,12 +44,9 @@
       enable = true;
       plugins = [
         "git"
-        "zsh-autosuggestions"
-        "zsh-syntax-highlighting"
         "jump"
         "aws"
         "kubectl"
-        "nix-shell"
       ];
     };
   };

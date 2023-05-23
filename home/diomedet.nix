@@ -36,6 +36,9 @@
   programs.fzf.enable = true;
   programs.fzf.enableZshIntegration = true;
 
+  programs.firefox.package = pkgs.Firefox;
+  programs.firefox.enable = true;
+
 
   programs.zsh = {
     enable = true;

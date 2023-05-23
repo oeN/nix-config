@@ -22,6 +22,7 @@
     # Configuration for `nixpkgs`
     nixpkgsConfig = {
       config = { allowUnfree = true; };
+      overlays = [ (import ./overlays) ];
     }; 
   in
   {

@@ -5,18 +5,7 @@
   imports = [
     ./modules/git.nix
     ./modules/alacritty
-  ];
-
-  home.packages = with pkgs; [
-    coreutils
-    curl
-    wget
-
-    jq
-    yq
-    awscli2
-
-    slack
+    ./modules/packages.nix
   ];
 
   # Direnv, load and unload environment variables depending on the current directory.

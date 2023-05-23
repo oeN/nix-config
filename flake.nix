@@ -33,6 +33,7 @@
         modules =  [ 
           # Main `nix-darwin` config
           ./configuration.nix
+          ./darwin/homebrew.nix
           # `home-manager` module
           home-manager.darwinModules.home-manager
           {

@@ -8,13 +8,15 @@
   ];
 
   home.packages = with pkgs; [
-    # Some basics
     coreutils
     curl
     wget
 
-    # Dev stuff
     jq
+    yq
+    awscli2
+
+    slack
   ];
 
   # Direnv, load and unload environment variables depending on the current directory.
@@ -64,5 +66,8 @@
     enableZshIntegration = true;
   };
 
-  programs.vscode.enable = true;
+  programs.vscode = {
+    enable = true;
+    enableUpdateCheck = false;
+  };
 }

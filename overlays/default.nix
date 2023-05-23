@@ -1,3 +1,3 @@
 self: super: {
-  Firefox = super.callPackage ./firefox {};
+  Firefox = super.callPackage ./firefox.nix {};
 }

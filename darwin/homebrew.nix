@@ -9,6 +9,6 @@
     ];
 
     homebrew.casks = [
-        "firefox"
+        # "firefox"
     ];
 }

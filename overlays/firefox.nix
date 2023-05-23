@@ -1,10 +1,12 @@
-{ stdenv, fetchurl, undmg }:
-
+{ stdenv, lib, fetchurl, undmg, unzip }:
+let
+  version = "113.0.2";
+in 
 stdenv.mkDerivation rec {
-  pname = "Firefox";
-  version = "113.0.1";
+  inherit version;
 
-  buildInputs = [ undmg ];
+  pname = "Firefox-${version}";
+  buildInputs = [ undmg unzip ];
   sourceRoot = ".";
   phases = [ "unpackPhase" "installPhase" ];
   installPhase = ''
@@ -15,10 +17,10 @@ stdenv.mkDerivation rec {
   src = fetchurl {
     name = "Firefox-${version}.dmg";
     url = "https://download-installer.cdn.mozilla.net/pub/firefox/releases/${version}/mac/en-GB/Firefox%20${version}.dmg";
-    sha256 = "1kvmyn375pb7mkcy410m8p1j550kv4g6dyx646igw68h1gz830va";
+    sha256 = "VU9qUMmxSjMJh2KYiS8+1+xT0GK7fmWUQfRKeKwRZ28=";
   };
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "The Firefox web browser";
     homepage = "https://www.mozilla.org/en-GB/firefox";
     maintainers = [ maintainers.cmacrae ];

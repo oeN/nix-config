@@ -8,8 +8,6 @@
     jq
     yq
     awscli2
-    _1password
-    _1password-gui
 
     # utilties
     rectangle

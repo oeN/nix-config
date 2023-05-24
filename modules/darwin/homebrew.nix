@@ -7,6 +7,8 @@
         casks = [
             "firefox"
             "raycast"
+            "1password"
+            "1password-cli"
         ];
     };
 }

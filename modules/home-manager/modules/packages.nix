@@ -14,5 +14,6 @@
 
     # messaging
     slack
+    teams
   ];
 }

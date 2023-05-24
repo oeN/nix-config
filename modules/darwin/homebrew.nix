@@ -9,6 +9,9 @@
             "raycast"
             "1password"
             "1password-cli"
+            "yubico-authenticator"
+            "blender"
+            "krita"
         ];
     };
 }

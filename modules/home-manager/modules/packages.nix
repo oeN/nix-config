@@ -15,5 +15,7 @@
     # messaging
     slack
     teams
+
+    obsidian
   ];
 }

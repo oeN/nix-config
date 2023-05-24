@@ -8,6 +8,12 @@
     ./modules/packages.nix
   ];
 
+  home.sessionVariables = {
+    PAGER = "less";
+    EDITOR = "nvim";
+    CLICLOLOR = 1;
+  };
+
   # Direnv, load and unload environment variables depending on the current directory.
   # https://direnv.net
   # https://rycee.gitlab.io/home-manager/options.html#opt-programs.direnv.enable
@@ -25,9 +31,6 @@
   programs.fzf.enable = true;
   programs.fzf.enableZshIntegration = true;
 
-  programs.firefox.package = pkgs.Firefox;
-  programs.firefox.enable = true;
-
 
   programs.zsh = {
     enable = true;
@@ -42,6 +45,10 @@
         "aws"
         "kubectl"
       ];
+    };
+    shellAliases = {
+      nixswitch = "darwin-rebuild switch --flake ~/nix-config/.#";
+      nixup = "pushd ~/nix-config; nix flake update; nixswitch; popd";
     };
   };
 
@@ -60,6 +67,6 @@
 
   programs.vscode = {
     enable = true;
-    enableUpdateCheck = false;
+    enableUpdateCheck = true;
   };
 }

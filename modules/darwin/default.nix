@@ -1,5 +1,14 @@
 { pkgs, lib, ... }:
 {
+  programs.zsh.enable = true;
+
+  environment = {
+    shells = with pkgs; [ bash zsh ];
+    loginShell = pkgs.zsh;
+    systemPackages = [ pkgs.gcc ];
+    systemPath = [ "/opt/homebrew/bin" "/opt/homebrew/sbin" ];
+    pathsToLink = [ "/Applications" ];
+  };
 
   # Enable experimental nix command and flakes
   # nix.package = pkgs.nixUnstable;
@@ -10,15 +19,8 @@
     extra-platforms = x86_64-darwin aarch64-darwin
   '';
 
-  environment.systemPackages = [ pkgs.gcc ];
 
-  # Create /etc/bashrc that loads the nix-darwin environment.
-  programs.zsh.enable = true;
-
-  # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
-
-  # Apps
   programs.nix-index.enable = true;
 
   # Fonts

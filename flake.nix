@@ -22,7 +22,6 @@
     # Configuration for `nixpkgs`
     nixpkgsConfig = {
       config = { allowUnfree = true; };
-      overlays = [ (import ./overlays) ];
     }; 
   in
   {
@@ -33,8 +32,8 @@
         system = "aarch64-darwin";
         modules =  [ 
           # Main `nix-darwin` config
-          ./configuration.nix
-          # ./darwin/homebrew.nix
+          ./modules/darwin
+          ./modules/darwin/homebrew.nix
           # `home-manager` module
           home-manager.darwinModules.home-manager
           {
@@ -44,7 +43,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             users.users.diomedet.home = "/Users/diomedet";
-            home-manager.users.diomedet = import ./home/diomedet.nix;
+            home-manager.users.diomedet = import ./modules/home-manager/diomedet.nix;
           }
         ];
       };

@@ -13,6 +13,8 @@
             "blender"
             "krita"
             "visual-studio-code"
+            "autodesk-fusion360"
+            "contexts"
         ];
     };
 }

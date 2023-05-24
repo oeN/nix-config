@@ -3,9 +3,15 @@
   programs.zsh.enable = true;
 
   environment = {
-    shells = with pkgs; [ bash zsh ];
+    shells = with pkgs; [ 
+      bash 
+      zsh 
+    ];
     loginShell = pkgs.zsh;
-    systemPackages = [ pkgs.gcc ];
+    systemPackages = with pkgs; [ 
+      gcc 
+      terminal-notifier 
+    ];
     systemPath = [ "/opt/homebrew/bin" "/opt/homebrew/sbin" ];
     pathsToLink = [ "/Applications" ];
   };
@@ -31,8 +37,10 @@
    ];
 
   # Keyboard
-  system.keyboard.enableKeyMapping = true;
-  system.keyboard.remapCapsLockToEscape = true;
+  system.keyboard = {
+    enableKeyMapping = true;
+    remapCapsLockToEscape = true;
+  };
 
   # Add ability to used TouchID for sudo authentication
   security.pam.enableSudoTouchIdAuth = true;
@@ -40,6 +48,7 @@
   # Dock and Mission Control
   system.defaults.dock = {
     autohide = true;
+    orientation = "left";
     expose-group-by-app = false;
     mru-spaces = false;
     tilesize = 128;
@@ -53,6 +62,12 @@
   # Finder
   system.defaults.finder = {
     FXEnableExtensionChangeWarning = true;
+  };
+
+  # Trackpad
+  system.defaults.trackpad = {
+    Clicking = true;
+    TrackpadRightClick = true;
   };
 
   system.defaults.NSGlobalDomain = {

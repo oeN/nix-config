@@ -43,7 +43,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             users.users.diomedet.home = "/Users/diomedet";
-            home-manager.users.diomedet = import ./modules/home-manager/diomedet.nix;
+            home-manager.users.diomedet = import ./modules/home-manager;
           }
         ];
       };

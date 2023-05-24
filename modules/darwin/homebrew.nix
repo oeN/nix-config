@@ -4,7 +4,7 @@
         onActivation.autoUpdate = true;
         global.brewfile = true;
 
-        homebrew.casks = [
+        casks = [
             "firefox"
             "raycast"
         ];

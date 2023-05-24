@@ -65,9 +65,4 @@
     enable = true;
     enableZshIntegration = true;
   };
-
-  programs.vscode = {
-    enable = true;
-    enableUpdateCheck = true;
-  };
 }

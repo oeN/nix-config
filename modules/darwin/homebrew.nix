@@ -12,6 +12,7 @@
             "yubico-authenticator"
             "blender"
             "krita"
+            "visual-studio-code"
         ];
     };
 }

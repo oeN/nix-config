@@ -5,6 +5,7 @@
   imports = [
     ./modules/git.nix
     ./modules/alacritty
+    ./modules/neovim
     ./modules/packages.nix
   ];
 

@@ -6,6 +6,7 @@
     ignores = [
       ".DS_Store"
       ".direnv"
+      ".vscode"
     ];
   };
 }

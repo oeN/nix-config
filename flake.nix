@@ -14,7 +14,7 @@
   };
 
   outputs = { self, darwin, nixpkgs, home-manager, ... }@inputs:
-  let 
+  let
 
     inherit (darwin.lib) darwinSystem;
     inherit (inputs.nixpkgs.lib) attrValues makeOverridable optionalAttrs singleton;
@@ -22,15 +22,16 @@
     # Configuration for `nixpkgs`
     nixpkgsConfig = {
       config = { allowUnfree = true; };
-    }; 
+      ovelays = import ./overlays;
+    };
   in
   {
     # My `nix-darwin` configs
-      
+
     darwinConfigurations = rec {
       Applin = darwinSystem {
         system = "aarch64-darwin";
-        modules =  [ 
+        modules =  [
           # Main `nix-darwin` config
           ./modules/darwin
           ./modules/darwin/homebrew.nix

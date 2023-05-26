@@ -8,6 +8,8 @@
     jq
     yq
     awscli2
+    docker
+    docker-desktop
 
     # utilties
     rectangle

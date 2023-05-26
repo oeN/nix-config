@@ -17,43 +17,47 @@
   let
 
     inherit (darwin.lib) darwinSystem;
-    inherit (inputs.nixpkgs.lib) attrValues makeOverridable optionalAttrs singleton;
 
     # Configuration for `nixpkgs`
     nixpkgsConfig = {
       config = { allowUnfree = true; };
       overlays = [(import ./overlays)];
     };
+
+    commonDarwinConfig = [
+      # Main `nix-darwin` config
+      ./modules/darwin
+      ./modules/darwin/homebrew.nix
+
+      # `home-manager` module
+      home-manager.darwinModules.home-manager
+      {
+        nixpkgs = nixpkgsConfig;
+
+        # `home-manager` config
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        users.users.diomedet.home = "/Users/diomedet";
+        home-manager.users.diomedet = import ./modules/home-manager;
+      }
+    ];
   in
   {
     # My `nix-darwin` configs
+    darwinConfigurations.Applin = darwinSystem rec {
+      system = "aarch64-darwin";
+      modules =  commonDarwinConfig ++ [(
+        { ... }: {
+          networking.hostName = "Applin";
+        }
+      )];
+    };
 
-    darwinConfigurations = rec {
-      Applin = darwinSystem {
-        system = "aarch64-darwin";
-        modules =  [
-          # Main `nix-darwin` config
-          ./modules/darwin
-          ./modules/darwin/homebrew.nix
-          # `home-manager` module
-          home-manager.darwinModules.home-manager
-          {
-            nixpkgs = nixpkgsConfig;
-
-            # `home-manager` config
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            users.users.diomedet.home = "/Users/diomedet";
-            home-manager.users.diomedet = import ./modules/home-manager;
-          }
-        ];
-      };
-      Diomedes-Virtual-Machine = Applin;
+      # Diomedes-Virtual-Machine = Applin;
       # Appletun = Applin.override {
       #   primaryUserDefaults.override {
       #     nixConfigDirectory = "/Volumes/T7/diomedet/.config/nixpkgs";
       #   }
       # }
-    };
  };
 }

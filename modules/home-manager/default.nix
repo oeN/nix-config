@@ -34,7 +34,6 @@
   programs.fzf.enable = true;
   programs.fzf.enableZshIntegration = true;
 
-
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -42,12 +41,7 @@
     enableSyntaxHighlighting = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [
-        "git"
-        "jump"
-        "aws"
-        "kubectl"
-      ];
+      plugins = [ "git" "jump" "aws" "kubectl" ];
     };
     shellAliases = {
       nixswitch = "darwin-rebuild switch --flake ~/nix-config/.#";

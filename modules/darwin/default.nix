@@ -1,17 +1,10 @@
-{ pkgs, lib, ... }:
-{
+{ pkgs, lib, ... }: {
   programs.zsh.enable = true;
 
   environment = {
-    shells = with pkgs; [ 
-      bash 
-      zsh 
-    ];
+    shells = with pkgs; [ bash zsh ];
     loginShell = pkgs.zsh;
-    systemPackages = with pkgs; [ 
-      gcc 
-      terminal-notifier 
-    ];
+    systemPackages = with pkgs; [ gcc terminal-notifier ];
     systemPath = [ "/opt/homebrew/bin" "/opt/homebrew/sbin" ];
     pathsToLink = [ "/Applications" ];
   };
@@ -25,16 +18,15 @@
     extra-platforms = x86_64-darwin aarch64-darwin
   '';
 
-
   services.nix-daemon.enable = true;
   programs.nix-index.enable = true;
 
   # Fonts
   fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [
-     recursive
-     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-   ];
+    recursive
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+  ];
 
   # Keyboard
   system.keyboard = {
@@ -60,9 +52,7 @@
   };
 
   # Finder
-  system.defaults.finder = {
-    FXEnableExtensionChangeWarning = true;
-  };
+  system.defaults.finder = { FXEnableExtensionChangeWarning = true; };
 
   # Trackpad
   system.defaults.trackpad = {

@@ -3,7 +3,7 @@
 
   inputs = {
     # Package sets
-    nixpkgs.url = github:NixOS/nixpkgs/nixpkgs-unstable;
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     # Environment/system management
     darwin.url = "github:lnl7/nix-darwin/master";
@@ -14,44 +14,40 @@
   };
 
   outputs = { self, darwin, nixpkgs, home-manager, ... }@inputs:
-  let
+    let
 
-    inherit (darwin.lib) darwinSystem;
+      inherit (darwin.lib) darwinSystem;
 
-    # Configuration for `nixpkgs`
-    nixpkgsConfig = {
-      config = { allowUnfree = true; };
-      overlays = [(import ./overlays)];
-    };
+      # Configuration for `nixpkgs`
+      nixpkgsConfig = {
+        config = { allowUnfree = true; };
+        overlays = [ (import ./overlays) ];
+      };
 
-    commonDarwinConfig = [
-      # Main `nix-darwin` config
-      ./modules/darwin
-      ./modules/darwin/homebrew.nix
+      commonDarwinConfig = [
+        # Main `nix-darwin` config
+        ./modules/darwin
+        ./modules/darwin/homebrew.nix
 
-      # `home-manager` module
-      home-manager.darwinModules.home-manager
-      {
-        nixpkgs = nixpkgsConfig;
+        # `home-manager` module
+        home-manager.darwinModules.home-manager
+        {
+          nixpkgs = nixpkgsConfig;
 
-        # `home-manager` config
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        users.users.diomedet.home = "/Users/diomedet";
-        home-manager.users.diomedet = import ./modules/home-manager;
-      }
-    ];
-  in
-  {
-    # My `nix-darwin` configs
-    darwinConfigurations.Applin = darwinSystem rec {
-      system = "aarch64-darwin";
-      modules =  commonDarwinConfig ++ [(
-        { ... }: {
-          networking.hostName = "Applin";
+          # `home-manager` config
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          users.users.diomedet.home = "/Users/diomedet";
+          home-manager.users.diomedet = import ./modules/home-manager;
         }
-      )];
-    };
+      ];
+    in {
+      # My `nix-darwin` configs
+      darwinConfigurations.Applin = darwinSystem rec {
+        system = "aarch64-darwin";
+        modules = commonDarwinConfig
+          ++ [ ({ ... }: { networking.hostName = "Applin"; }) ];
+      };
 
       # Diomedes-Virtual-Machine = Applin;
       # Appletun = Applin.override {
@@ -59,5 +55,5 @@
       #     nixConfigDirectory = "/Volumes/T7/diomedet/.config/nixpkgs";
       #   }
       # }
- };
+    };
 }

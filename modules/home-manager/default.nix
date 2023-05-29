@@ -10,6 +10,12 @@
     ./modules/packages.nix
   ];
 
+  nixpkgs.overlays = [
+    (pkgsFinal: pkgsPrev: {
+      inherit (pkgsFinal.cross.x86_64-darwin) jellyfin-media-player;
+    })
+  ];
+
   home.sessionVariables = {
     PAGER = "less";
     EDITOR = "nvim";

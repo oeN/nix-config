@@ -5,6 +5,8 @@
     # Package sets
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
+    flake-utils.url = "github:numtide/flake-utils";
+
     # Environment/system management
     darwin.url = "github:lnl7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -13,15 +15,22 @@
 
   };
 
-  outputs = { self, darwin, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, darwin, nixpkgs, home-manager, flake-utils, ... }@inputs:
     let
 
       inherit (darwin.lib) darwinSystem;
 
       # Configuration for `nixpkgs`
-      nixpkgsConfig = {
+      nixpkgsConfig = rec {
         config = { allowUnfree = true; };
-        overlays = [ (import ./overlays) ];
+        overlays = [
+          (import ./overlays)
+          # Make packages for other systems available for cross compilation
+          (_: _:
+            flake-utils.lib.eachDefaultSystem (system: {
+              cross = import nixpkgs { inherit system config overlays; };
+            }))
+        ];
       };
 
       commonDarwinConfig = [

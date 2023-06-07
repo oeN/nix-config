@@ -15,6 +15,7 @@
       "visual-studio-code"
       "contexts"
       "insomnia"
+      "unity-hub"
     ];
   };
 }

@@ -11,20 +11,25 @@ local SOLID_RIGHT_ARROW = wezterm.nerdfonts.pl_left_hard_divider
 
 function module.apply_to_config(config)
   config.tab_bar_at_bottom = true
-  config.tab_bar_style = {
-    active_tab_left = wezterm.format {
-      { Text = SOLID_LEFT_ARROW },
-    },
-    active_tab_right = wezterm.format {
-      { Text = SOLID_RIGHT_ARROW },
-    },
-    inactive_tab_left = wezterm.format {
-      { Text = SOLID_LEFT_ARROW },
-    },
-    inactive_tab_right = wezterm.format {
-      { Text = SOLID_RIGHT_ARROW },
-    },
+
+  config.window_frame = {
+    font_size = 18.0,
   }
+
+  -- config.tab_bar_style = {
+  --   active_tab_left = wezterm.format {
+  --     { Text = SOLID_LEFT_ARROW },
+  --   },
+  --   active_tab_right = wezterm.format {
+  --     { Text = SOLID_RIGHT_ARROW },
+  --   },
+  --   inactive_tab_left = wezterm.format {
+  --     { Text = SOLID_LEFT_ARROW },
+  --   },
+  --   inactive_tab_right = wezterm.format {
+  --     { Text = SOLID_RIGHT_ARROW },
+  --   },
+  -- }
 
 end
 

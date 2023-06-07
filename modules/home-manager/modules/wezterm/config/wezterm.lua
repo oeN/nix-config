@@ -1,5 +1,9 @@
 -- Pull in the wezterm API
 local wezterm = require 'wezterm'
+local keys = require 'keys'
+local theme = require 'theme'
+
+local modules = { keys, theme }
 
 -- This table will hold the configuration.
 local config = {}
@@ -12,7 +16,9 @@ end
 
 -- This is where you actually apply your config choices
 
-config.color_scheme = 'Monokai Pro (Gogh)'
+for i, module in ipairs(modules) do
+  module.apply_to_config(config)
+end
 
 -- and finally, return the configuration to wezterm
 return config

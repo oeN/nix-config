@@ -1,4 +1,4 @@
 {
   programs.wezterm.enable = true;
-  # xdg.configFile."alacritty/alacritty.yml".source = ./alacritty.light.yml;
+  xdg.configFile."wezterm/wezterm.lua".source = ./wezterm.lua;
 }

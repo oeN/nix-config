@@ -11,11 +11,10 @@
     shellAliases = {
       nixswitch = "darwin-rebuild switch --flake ~/nix-config/.#";
       nixup = "pushd ~/nix-config; nix flake update; nixswitch; popd";
+      k = "kubectl";
+      kx = "kubectx";
+      dc = "docker-compose";
+      d = "docker";
     };
-  };
-
-  programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
   };
 }

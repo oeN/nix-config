@@ -8,6 +8,7 @@
     ./modules/wezterm
     ./modules/neovim
     ./modules/zsh
+    ./modules/starship
     # ./modules/tmux
     ./modules/packages.nix
   ];

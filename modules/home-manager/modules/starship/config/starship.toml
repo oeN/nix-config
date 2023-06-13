@@ -1,0 +1,17 @@
+format = "$all$directory$character"
+
+[time]
+disabled = false
+
+[kubernetes]
+disabled = false
+format = 'on [⛵ $context \($namespace\)](dimmed green) '
+
+[aws]
+format = 'on [$symbol($profile )(\($region\) )]($style)'
+style = "bold blue"
+symbol = "🅰 "
+
+[docker_context]
+format = "via [🐋 $context](blue bold)"
+only_with_files = false

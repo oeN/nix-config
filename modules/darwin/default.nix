@@ -2,7 +2,7 @@
   programs.zsh.enable = true;
 
   environment = {
-    shells = with pkgs; [ bash zsh ];
+    shells = with pkgs; [ zsh ];
     loginShell = pkgs.zsh;
     systemPackages = with pkgs; [ gcc terminal-notifier ];
     systemPath = [ "/opt/homebrew/bin" "/opt/homebrew/sbin" ];

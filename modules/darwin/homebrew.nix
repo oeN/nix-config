@@ -16,6 +16,8 @@
       "contexts"
       "insomnia"
       "unity-hub"
+      "vlc"
+      "telegram"
     ];
   };
 }

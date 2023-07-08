@@ -8,6 +8,7 @@
     yq
     awscli2
     docker
+    gh
 
     # utilties
     rectangle

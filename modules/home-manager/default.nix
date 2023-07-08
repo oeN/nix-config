@@ -23,7 +23,7 @@
     PAGER = "less";
     EDITOR = "nvim";
     CLICLOLOR = 1;
-    GITHUB_TOKEN = "op://Personal/GitHub Personal Access Token/credential";
+    GITHUB_TOKEN = "op://Personal/GitHub Personal Access Token/token";
   };
 
   # Direnv, load and unload environment variables depending on the current directory.

@@ -48,6 +48,7 @@
           home-manager.useUserPackages = true;
           users.users.diomedet.home = "/Users/diomedet";
           home-manager.users.diomedet = import ./modules/home-manager/diomedet;
+          users.users.root.home = "/var/root";
           home-manager.users.root = import ./modules/home-manager/root.nix;
         }
       ];

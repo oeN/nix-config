@@ -18,6 +18,17 @@
     extra-platforms = x86_64-darwin aarch64-darwin
   '';
 
+  nix.settings.trusted-users = [ "diomedet" "root" ];
+  nix.settings.builders-use-substitutes = true;
+
+  nix.buildMachines = [{
+    system = "x86_64-linux";
+    sshUser = "root";
+    sshKey = "/Users/diomedet/.ssh/id_ed25519";
+    hostName = "scyther";
+  }];
+  nix.distributedBuilds = true;
+
   services.nix-daemon.enable = true;
   programs.nix-index.enable = true;
 

@@ -21,7 +21,6 @@
     obsidian
     nixfmt
 
-    devenv
     cachix
   ];
 }

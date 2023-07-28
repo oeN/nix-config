@@ -40,7 +40,7 @@ end
 function module.apply_to_config(config)
   config.color_scheme = scheme_for_appearance(get_appearance())
   -- config.font_size = font_size_for_screen(get_active_screen())
-  config.font_size = 16.0
+  config.font_size = 20.0
 
   config.font = wezterm.font 'JetBrains Mono'
 end

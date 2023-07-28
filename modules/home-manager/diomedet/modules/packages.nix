@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, defaultSystem, ... }: {
   home.packages = with pkgs; [
     coreutils
     curl
@@ -21,6 +21,7 @@
     obsidian
     nixfmt
 
+    inputs.devenv.packages.${defaultSystem}.devenv
     cachix
   ];
 }

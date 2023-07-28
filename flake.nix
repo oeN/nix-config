@@ -54,16 +54,19 @@
           nixpkgs = nixpkgsConfig;
 
           # `home-manager` config
+          # needed for the packages.nix file
+          home-manager.extraSpecialArgs = { inherit inputs defaultSystem; };
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+
           users.users.diomedet.home = "/Users/diomedet";
           home-manager.users.diomedet = import ./modules/home-manager/diomedet;
+
           users.users.root.home = "/var/root";
           home-manager.users.root = import ./modules/home-manager/root.nix;
         }
       ];
-
-      pkgs = nixpkgs;
+      pkgs = nixpkgs.legacyPackages.${defaultSystem};
     in {
       # My `nix-darwin` configs
       darwinConfigurations.Applin = darwinSystem rec {
@@ -79,21 +82,23 @@
       #   }
       # }
 
-      # devShells.${defaultSystem}.default = devenv.lib.mkShell {
-      #   inherit inputs pkgs;
-      #   modules = [
-      #     ({ pkgs, ... }: {
-      #       # This is your devenv configuration
-      #       packages = [ pkgs.hello ];
+      devShells.${defaultSystem} = {
+        default = devenv.lib.mkShell {
+          inherit inputs pkgs;
+          modules = [
+            ({ pkgs, ... }: {
+              # This is your devenv configuration
+              packages = [ pkgs.hello ];
 
-      #       enterShell = ''
-      #         hello
-      #       '';
+              enterShell = ''
+                hello
+              '';
 
-      #       processes.run.exec = "hello";
-      #     })
-      #   ];
-      # };
+              processes.run.exec = "hello";
+            })
+          ];
+        };
+      };
 
       # perSystem = { config, pkgs, ... }: {
       #   devShells = {

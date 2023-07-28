@@ -3,7 +3,7 @@
 
   inputs = {
     # Package sets
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
     devenv.url = "github:cachix/devenv";
 
     flake-utils.url = "github:numtide/flake-utils";
@@ -22,10 +22,13 @@
     extra-substituters = "https://devenv.cachix.org";
   };
 
-  outputs = { self, darwin, nixpkgs, home-manager, flake-utils, ... }@inputs:
+  outputs =
+    { self, darwin, nixpkgs, home-manager, flake-utils, devenv, ... }@inputs:
     let
 
       inherit (darwin.lib) darwinSystem;
+
+      defaultSystem = "aarch64-darwin";
 
       # Configuration for `nixpkgs`
       nixpkgsConfig = rec {
@@ -59,10 +62,12 @@
           home-manager.users.root = import ./modules/home-manager/root.nix;
         }
       ];
+
+      pkgs = nixpkgs;
     in {
       # My `nix-darwin` configs
       darwinConfigurations.Applin = darwinSystem rec {
-        system = "aarch64-darwin";
+        system = defaultSystem;
         modules = commonDarwinConfig
           ++ [ ({ ... }: { networking.hostName = "Applin"; }) ];
       };
@@ -73,5 +78,38 @@
       #     nixConfigDirectory = "/Volumes/T7/diomedet/.config/nixpkgs";
       #   }
       # }
+
+      # devShells.${defaultSystem}.default = devenv.lib.mkShell {
+      #   inherit inputs pkgs;
+      #   modules = [
+      #     ({ pkgs, ... }: {
+      #       # This is your devenv configuration
+      #       packages = [ pkgs.hello ];
+
+      #       enterShell = ''
+      #         hello
+      #       '';
+
+      #       processes.run.exec = "hello";
+      #     })
+      #   ];
+      # };
+
+      # perSystem = { config, pkgs, ... }: {
+      #   devShells = {
+      #     default = pkgs.mkShellNoCC {
+      #       name = "NixOS-config";
+
+      #       nativeBuildInputs = with pkgs; [
+      #         gitAndTools.pre-commit
+      #         nixpkgs-fmt
+      #       ];
+
+      #       shellHook = ''
+      #         ${config.pre-commit.installationScript}
+      #       '';
+      #     };
+      #   };
+      # };
     };
 }

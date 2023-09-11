@@ -18,6 +18,7 @@
       "unity-hub"
       "vlc"
       "telegram"
+      "motrix"
     ];
   };
 }

@@ -19,6 +19,8 @@
       "vlc"
       "telegram"
       "motrix"
+      "the-unarchiver"
+      "postman"
     ];
   };
 }

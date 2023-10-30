@@ -21,6 +21,7 @@
       "motrix"
       "the-unarchiver"
       "postman"
+      "openemu"
     ];
   };
 }

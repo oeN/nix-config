@@ -22,6 +22,7 @@
       "the-unarchiver"
       "postman"
       "openemu"
+      "keybase"
     ];
   };
 }

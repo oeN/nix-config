@@ -81,40 +81,5 @@
       #     nixConfigDirectory = "/Volumes/T7/diomedet/.config/nixpkgs";
       #   }
       # }
-
-      devShells.${defaultSystem} = {
-        default = devenv.lib.mkShell {
-          inherit inputs pkgs;
-          modules = [
-            ({ pkgs, ... }: {
-              # This is your devenv configuration
-              packages = [ pkgs.hello ];
-
-              enterShell = ''
-                hello
-              '';
-
-              processes.run.exec = "hello";
-            })
-          ];
-        };
-      };
-
-      # perSystem = { config, pkgs, ... }: {
-      #   devShells = {
-      #     default = pkgs.mkShellNoCC {
-      #       name = "NixOS-config";
-
-      #       nativeBuildInputs = with pkgs; [
-      #         gitAndTools.pre-commit
-      #         nixpkgs-fmt
-      #       ];
-
-      #       shellHook = ''
-      #         ${config.pre-commit.installationScript}
-      #       '';
-      #     };
-      #   };
-      # };
     };
 }

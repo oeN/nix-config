@@ -34,7 +34,7 @@
       nixpkgsConfig = rec {
         config = { allowUnfree = true; };
         overlays = [
-          (import ./overlays)
+          # (import ./overlays)
           # Make packages for other systems available for cross compilation
           (_: _:
             flake-utils.lib.eachDefaultSystem (system: {

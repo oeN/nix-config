@@ -24,5 +24,7 @@
 
     inputs.devenv.packages.${defaultSystem}.devenv
     cachix
+
+    ripgrep
   ];
 }

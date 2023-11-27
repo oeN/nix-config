@@ -24,5 +24,7 @@
       "openemu"
       "keybase"
     ];
+
+    brews = [ "kdoctor" ];
   };
 }

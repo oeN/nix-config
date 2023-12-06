@@ -26,5 +26,8 @@
     cachix
 
     ripgrep
+    nodejs
+    rustup
+    lazygit
   ];
 }

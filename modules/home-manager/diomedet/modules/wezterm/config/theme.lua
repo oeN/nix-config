@@ -2,6 +2,8 @@ local wezterm = require 'wezterm'
 
 local module = {}
 
+local default_font_size = 20.0 -- my default monitor is big enough for this
+
 
 -- wezterm.gui is not available to the mux server, so take care to
 -- do something reasonable when this config is evaluated by the mux
@@ -40,7 +42,8 @@ end
 function module.apply_to_config(config)
   config.color_scheme = scheme_for_appearance(get_appearance())
   -- config.font_size = font_size_for_screen(get_active_screen())
-  config.font_size = 20.0
+  config.font_size = default_font_size
+  config.command_palette_font_size = default_font_size
 
   config.font = wezterm.font 'JetBrains Mono'
 end

@@ -27,7 +27,11 @@
 
     ripgrep
     nodejs
+
+    bacon
+    libiconv
     rustup
+
     lazygit
   ];
 }

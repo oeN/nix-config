@@ -51,4 +51,5 @@ return {
   'hrsh7th/cmp-cmdline',
   'hrsh7th/cmp-nvim-lsp',
   'j-hui/fidget.nvim',
+  'simrat39/rust-tools.nvim',
 }

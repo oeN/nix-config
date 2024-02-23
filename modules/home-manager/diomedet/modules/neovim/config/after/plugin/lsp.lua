@@ -23,3 +23,16 @@ for _, server_name in ipairs(mason_lsp.get_installed_servers()) do
         capabilities = capabilities,
     })
 end
+
+require('fidget').setup()
+
+require('rust-tools').setup {
+  tools = {
+    runnables = {
+      use_telescope = true,
+    },
+    inlay_hints = {
+      auto = true,
+    },
+  },
+}

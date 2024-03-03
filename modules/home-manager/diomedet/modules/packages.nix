@@ -33,5 +33,7 @@
     rustup
 
     lazygit
+
+    dotnet-sdk
   ];
 }

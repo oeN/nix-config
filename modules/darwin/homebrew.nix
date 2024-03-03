@@ -23,6 +23,8 @@
       "postman"
       "openemu"
       "keybase"
+      "godot"
+      "inkscape"
     ];
 
     brews = [ "kdoctor" ];

@@ -66,6 +66,7 @@
         }
       ];
       pkgs = nixpkgs.legacyPackages.${defaultSystem};
+      frameworks = pkgs.darwin.apple_sdk.frameworks;
     in {
       # My `nix-darwin` configs
       darwinConfigurations.Applin = darwinSystem rec {

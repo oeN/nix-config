@@ -25,6 +25,7 @@
       "keybase"
       "godot"
       "inkscape"
+      "handbrake"
     ];
 
     brews = [ "kdoctor" ];

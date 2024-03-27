@@ -32,8 +32,11 @@
     libiconv
     rustup
 
+    gcc
+
     lazygit
 
     dotnet-sdk
   ];
+
 }

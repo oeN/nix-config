@@ -3,8 +3,9 @@ local wezterm = require 'wezterm'
 local keys = require 'keys'
 local theme = require 'theme'
 local tab_bar = require 'tab_bar'
+local multiplexing = require 'multiplexing'
 
-local modules = { keys, theme, tab_bar }
+local modules = { keys, theme, tab_bar, multiplexing }
 
 -- This table will hold the configuration.
 local config = {}

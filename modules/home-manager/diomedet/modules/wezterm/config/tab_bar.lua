@@ -75,8 +75,8 @@ wezterm.on('update-right-status', function(window, pane)
   -- Figure out the cwd and host of the current pane.
   -- This will pick up the hostname for the remote host if your
   -- shell is using OSC 7 on the remote host.
-  local cwd_uri = pane:get_current_working_dir()
-  if cwd_uri then
+  local cwd_status, cwd_uri = pcall(pane:get_current_working_dir())
+  if cwd_status then
     cwd_uri = cwd_uri:sub(8)
     local slash = cwd_uri:find '/'
     local cwd = ''

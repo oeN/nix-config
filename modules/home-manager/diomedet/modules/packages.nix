@@ -37,6 +37,8 @@
     lazygit
 
     dotnet-sdk
+
+    inputs.my-nixvim.packages.${system}.default
   ];
 
 }

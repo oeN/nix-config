@@ -13,6 +13,7 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    my-nixvim.url = "github:oeN/nix-vim";
   };
 
   nixConfig = {

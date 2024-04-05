@@ -6,7 +6,7 @@
     ./modules/git.nix
     ./modules/alacritty
     ./modules/wezterm
-    ./modules/neovim
+    # ./modules/neovim
     ./modules/zsh
     ./modules/starship
     # ./modules/tmux

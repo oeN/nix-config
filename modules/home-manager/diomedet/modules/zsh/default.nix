@@ -15,6 +15,7 @@
       kx = "kubectx";
       dc = "docker-compose";
       d = "docker";
+      love = "~/Applications/love.app/Contents/MacOS/love";
     };
     initExtra = ''
       source /Users/diomedet/.config/op/plugins.sh

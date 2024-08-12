@@ -16,7 +16,6 @@
 
     # messaging
     slack
-    teams
     discord
 
     obsidian

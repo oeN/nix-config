@@ -26,6 +26,7 @@
       "godot"
       "inkscape"
       "handbrake"
+      "microsoft-teams"
     ];
 
     brews = [ "kdoctor" ];

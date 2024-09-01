@@ -7,4 +7,6 @@
         HostName 10.10.5.109
     '';
   };
+
+  nix.settings.trusted-users = [ "root" ];
 }

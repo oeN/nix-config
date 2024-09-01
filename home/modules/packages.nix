@@ -1,4 +1,4 @@
-{ pkgs, inputs, defaultSystem, ... }: {
+{ pkgs, devenv, my-nixvim, ... }: {
   home.packages = with pkgs; [
     coreutils
     curl
@@ -19,9 +19,8 @@
     discord
 
     obsidian
-    nixfmt
 
-    inputs.devenv.packages.${defaultSystem}.devenv
+    devenv.packages.${system}.devenv
     cachix
 
     ripgrep
@@ -37,7 +36,6 @@
 
     dotnet-sdk
 
-    inputs.my-nixvim.packages.${system}.default
+    my-nixvim.packages.${system}.default
   ];
-
 }

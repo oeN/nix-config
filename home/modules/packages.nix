@@ -1,14 +1,14 @@
 { pkgs, devenv, my-nixvim, ... }: {
   home.packages = with pkgs; [
     coreutils
-    curl
-    wget
 
     jq
     yq
     awscli2
     docker
     gh
+    btop
+    neofetch
 
     # utilties
     rectangle

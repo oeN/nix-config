@@ -1,21 +1,9 @@
-{ pkgs, lib, ... }:
-
-{
-  # enable flakes globally
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.settings.extra-platforms = [ "x86_64-darwin" "aarch64-darwin" ];
-
+{lib, ...}: {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
-  # Use this instead of services.nix-daemon.enable if you
-  # don't wan't the daemon service to be managed for you.
-  # nix.useDaemon = true;
-
-  programs.nix-index.enable = true;
-  nix.package = pkgs.nix;
 
   # do garbage collection weekly to keep disk usage low
   nix.gc = {
@@ -26,5 +14,5 @@
   # Disable auto-optimise-store because of this issue:
   #   https://github.com/NixOS/nix/issues/7273
   # "error: cannot link '/nix/store/.tmp-link-xxxxx-xxxxx' to '/nix/store/.links/xxxx': File exists"
-  nix.settings = { auto-optimise-store = false; };
+  nix.settings.auto-optimise-store = false;
 }

@@ -1,5 +1,4 @@
-{ pkgs, ... }: {
-
+{pkgs, ...}: {
   ##########################################################################
   #
   #  Install all apps and packages here.
@@ -18,12 +17,18 @@
 
   environment.systemPackages = with pkgs; [
     neovim
-    gcc
-    terminal-notifier
     git
+
+    gnugrep
+    gnutar
+
+    gcc
     just # use Justfile to simplify nix-darwin's commands
   ];
   environment.variables.EDITOR = "nvim";
+
+  programs.zsh.enable = true;
+  environment.shells = [pkgs.zsh];
 
   # TODO To make this work, homebrew need to be installed manually, see https://brew.sh
   #
@@ -33,7 +38,8 @@
     enable = true;
 
     onActivation = {
-      autoUpdate = false;
+      autoUpdate = true;
+      upgrade = true;
       # 'zap': uninstalls all formulae(and related files) not listed here.
       cleanup = "zap";
     };
@@ -45,14 +51,12 @@
     # otherwise Apple Store will refuse to install them.
     # For details, see https://github.com/mas-cli/mas
     masApps = {
-
       # Xcode = 497799835;
     };
 
-    taps = [ "homebrew/services" ];
+    taps = ["homebrew/services"];
 
     # `brew install`
-    # TODO Feel free to add your favorite apps here.
     brews = [
       "wget" # download tool
       "curl" # no not install curl via nixpkgs, it's not working well on macOS!
@@ -60,7 +64,6 @@
     ];
 
     # `brew install --cask`
-    # TODO Feel free to add your favorite apps here.
     casks = [
       "firefox"
       "raycast"

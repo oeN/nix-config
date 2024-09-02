@@ -1,4 +1,9 @@
-{ pkgs, devenv, my-nixvim, ... }: {
+{
+  pkgs,
+  devenv,
+  my-nixvim,
+  ...
+}: {
   home.packages = with pkgs; [
     coreutils
 
@@ -7,7 +12,6 @@
     awscli2
     docker
     gh
-    btop
     neofetch
 
     # utilties

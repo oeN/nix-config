@@ -3,15 +3,17 @@
 
   inputs = {
     # Package sets
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+
     devenv.url = "github:cachix/devenv";
 
     flake-utils.url = "github:numtide/flake-utils";
 
     # Environment/system management
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.05-darwin";
-
-    darwin = {
+    nix-darwin = {
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
@@ -21,15 +23,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    my-nixvim.url = "github:oeN/nix-vim";
-  };
+    haumea = {
+      url = "github:nix-community/haumea/v0.2.2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-  nixConfig = {
-    extra-substituters = ["https://nix-community.cachix.org" "https://devenv.cachix.org"];
-    extra-trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
-    ];
+    my-nixvim.url = "github:oeN/nix-vim";
   };
 
   outputs = inputs: import ./outputs inputs;

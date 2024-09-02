@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-
+{pkgs, ...}:
 ###################################################################################
 #
 #  macOS's System configuration
@@ -11,6 +10,11 @@
 #
 ###################################################################################
 {
+  # Add ability to used TouchID for sudo authentication
+  security.pam.enableSudoTouchIdAuth = true;
+
+  # Set your time zone.
+  time.timeZone = "Europe/Rome";
 
   system = {
     # activationScripts are executed every time you boot the system or run `nixos-rebuild` / `darwin-rebuild`.
@@ -150,7 +154,7 @@
           location = "~/Desktop";
           type = "png";
         };
-        "com.apple.AdLib" = { allowApplePersonalizedAdvertising = false; };
+        "com.apple.AdLib" = {allowApplePersonalizedAdvertising = false;};
         # Prevent Photos from opening automatically when devices are plugged in
         "com.apple.ImageCapture".disableHotPlug = true;
       };
@@ -182,21 +186,10 @@
     };
   };
 
-  # Add ability to used TouchID for sudo authentication
-  security.pam.enableSudoTouchIdAuth = true;
-
-  # Create /etc/zshrc that loads the nix-darwin environment.
-  # this is required if you want to use darwin's default shell - zsh
-  programs.zsh.enable = true;
   environment = {
-    shells = [ pkgs.zsh ];
-    loginShell = pkgs.zsh;
-    systemPath = [ "/opt/homebrew/bin" "/opt/homebrew/sbin" ];
-    pathsToLink = [ "/Applications" ];
+    # systemPath = ["/opt/homebrew/bin" "/opt/homebrew/sbin"];
+    # pathsToLink = ["/Applications"];
   };
-
-  # Set your time zone.
-  time.timeZone = "Europe/Rome";
 
   # Fonts
   fonts = {

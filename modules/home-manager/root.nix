@@ -1,3 +1,5 @@
+# NOTE: I shouldn't need this file anymore, I'll leave it here for now
+# if I encouter problems
 {
   home.stateVersion = "23.05";
   programs.ssh = {
@@ -8,5 +10,5 @@
     '';
   };
 
-  nix.settings.trusted-users = [ "root" ];
+  nix.settings.trusted-users = ["root"];
 }

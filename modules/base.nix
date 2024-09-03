@@ -8,7 +8,9 @@
 } @ args: {
   # auto upgrade nix to the unstable version
   # https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/tools/package-management/nix/default.nix#L284
-  nix.package = pkgs.nixVersions.latest;
+
+  # we freeze the nix version to 2.23, because of this https://github.com/cachix/devenv/issues/1364
+  nix.package = pkgs.nixVersions.nix_2_23;
 
   environment.systemPackages = with pkgs; [
     git # used by nix flakes
@@ -59,10 +61,15 @@
     # given the users in this list the right to specify additional substituters via:
     #    1. `nixConfig.substituers` in `flake.nix`
     #    2. command line args `--options substituers http://xxx`
-    trusted-users = [myvars.username];
+    trusted-users = ["root" myvars.username];
 
     # substituers that will be considered before the official ones(https://cache.nixos.org)
     substituters = [
+      "https://nix-community.cachix.org"
+      "https://devenv.cachix.org"
+    ];
+
+    extra-substituters = [
       "https://nix-community.cachix.org"
       "https://devenv.cachix.org"
     ];
@@ -71,6 +78,12 @@
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
     ];
+
+    extra-trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
+    ];
+
     builders-use-substitutes = true;
   };
 

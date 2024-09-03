@@ -15,20 +15,23 @@
   #
   # Related Discussion: https://discourse.nixos.org/t/darwin-again/29331
 
-  environment.systemPackages = with pkgs; [
-    neovim
-    git
-
-    gnugrep
-    gnutar
-
-    gcc
-    just # use Justfile to simplify nix-darwin's commands
-  ];
-  environment.variables.EDITOR = "nvim";
-
   programs.zsh.enable = true;
-  environment.shells = [pkgs.zsh];
+  environment = {
+    shells = [pkgs.zsh];
+    variables.EDITOR = "nvim";
+    systemPath = ["/opt/homebrew/bin" "/opt/homebrew/sbin"];
+
+    systemPackages = with pkgs; [
+      neovim
+      git
+
+      gnugrep
+      gnutar
+
+      gcc
+      just # use Justfile to simplify nix-darwin's commands
+    ];
+  };
 
   # TODO To make this work, homebrew need to be installed manually, see https://brew.sh
   #
@@ -61,6 +64,7 @@
       "wget" # download tool
       "curl" # no not install curl via nixpkgs, it's not working well on macOS!
       "kdoctor"
+      "terraform"
     ];
 
     # `brew install --cask`
@@ -86,6 +90,7 @@
       "inkscape"
       "handbrake"
       "microsoft-teams"
+      "autodesk-fusion"
     ];
   };
 }

@@ -12,10 +12,12 @@ in {
     ./hardware-configuration.nix
   ];
 
+  # TODO: move me elsewhere
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+
   networking = {
     inherit hostName;
-    inherit (myvars.networking) defaultGateway nameservers;
-    inherit (myvars.networking.hostsInterface.${hostName}) interfaces;
 
     # desktop need its cli for status bar
     networkmanager.enable = true;

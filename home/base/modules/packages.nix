@@ -15,7 +15,6 @@
     neofetch
 
     # utilties
-    rectangle
     prom2json
 
     # messaging

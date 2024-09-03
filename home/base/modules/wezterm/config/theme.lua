@@ -28,7 +28,7 @@ local function scheme_for_appearance(appearance)
   if appearance:find 'Dark' then
     return 'Ocean Dark (Gogh)'
   else
-    return 'Ocean (light) (terminal.sexy)'
+    return 'Violet Light'
   end
 end
 

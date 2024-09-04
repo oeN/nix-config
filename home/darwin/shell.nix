@@ -1,4 +1,4 @@
-{myvar,...}: {
+{myvar, ...}: {
   programs.zsh = {
     initExtra = ''
       source /Users/${myvar.username}/.config/op/plugins.sh

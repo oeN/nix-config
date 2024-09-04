@@ -6,9 +6,6 @@
   lib,
   ...
 } @ args: {
-  # auto upgrade nix to the unstable version
-  # https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/tools/package-management/nix/default.nix#L284
-
   # we freeze the nix version to 2.23, because of this https://github.com/cachix/devenv/issues/1364
   nix.package = pkgs.nixVersions.nix_2_23;
 

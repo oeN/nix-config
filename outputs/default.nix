@@ -14,16 +14,6 @@
     inputs
     // {
       inherit mylib myvars;
-
-      # use unstable branch for some packages to get the latest updates
-      pkgs-unstable = import inputs.nixpkgs-unstable {
-        inherit system; # refer the `system` parameter form outer scope recursively
-        config.allowUnfree = true;
-      };
-      pkgs-stable = import inputs.nixpkgs-stable {
-        inherit system;
-        config.allowUnfree = true;
-      };
     };
 
   args = {inherit inputs lib mylib myvars genSpecialArgs;};

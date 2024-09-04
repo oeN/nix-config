@@ -1,4 +1,4 @@
-{myvars, ...}: {
+{my, ...}: {
   imports = [
     ./modules/core.nix
     ./modules/git.nix
@@ -12,7 +12,7 @@
   ];
 
   home = {
-    inherit (myvars) username;
+    inherit (my.vars) username;
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage

@@ -1,6 +1,5 @@
 {
   config,
-  myvars,
   ...
 }: let
   d = config.xdg.dataHome;

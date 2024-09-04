@@ -1,6 +1,6 @@
 {
   pkgs,
-  myvars,
+  my,
   nuenv,
   nixpkgs,
   lib,
@@ -46,9 +46,9 @@
     rsync
   ];
 
-  users.users.${myvars.username} = {
-    description = myvars.userfullname;
-    openssh.authorizedKeys.keys = myvars.sshAuthorizedKeys;
+  users.users.${my.vars.username} = {
+    description = my.vars.userfullname;
+    openssh.authorizedKeys.keys = my.vars.sshAuthorizedKeys;
   };
 
   nix.settings = {
@@ -58,7 +58,7 @@
     # given the users in this list the right to specify additional substituters via:
     #    1. `nixConfig.substituers` in `flake.nix`
     #    2. command line args `--options substituers http://xxx`
-    trusted-users = ["root" myvars.username];
+    trusted-users = ["root" my.vars.username];
 
     # substituers that will be considered before the official ones(https://cache.nixos.org)
     substituters = [

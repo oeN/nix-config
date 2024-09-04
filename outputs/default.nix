@@ -4,8 +4,12 @@
   ...
 } @ inputs: let
   inherit (inputs.nixpkgs) lib;
-  mylib = import ../lib {inherit lib;};
-  myvars = import ../vars {inherit lib;};
+  keys = import ../keys;
+  my = {
+    keys = keys;
+    lib = import ../lib {inherit lib;};
+    vars = import ../vars {inherit lib keys;};
+  };
 
   # Add my custom lib, vars, nixpkgs instance, and all the inputs to specialArgs,
   # so that I can use them in all my nixos/home-manager/darwin modules.
@@ -13,10 +17,10 @@
   genSpecialArgs = system:
     inputs
     // {
-      inherit mylib myvars;
+      inherit my;
     };
 
-  args = {inherit inputs lib mylib myvars genSpecialArgs;};
+  args = {inherit inputs lib my genSpecialArgs;};
 
   nixosSystems = {
     x86_64-linux = import ./x86_64-linux (args // {system = "x86_64-linux";});
@@ -36,7 +40,7 @@
   forAllSystems = func: (nixpkgs.lib.genAttrs allSystemNames func);
 in {
   # Add attribute sets into outputs, for debugging
-  debugAttrs = {inherit nixosSystems darwinSystems allSystems allSystemNames;};
+  debugAttrs = {inherit nixosSystems darwinSystems allSystems allSystemNames my;};
 
   # NixOS Hosts
   nixosConfigurations =

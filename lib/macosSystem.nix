@@ -3,7 +3,7 @@
   inputs,
   darwin-modules,
   home-modules ? [],
-  myvars,
+  my,
   system,
   genSpecialArgs,
   specialArgs ? (genSpecialArgs system),
@@ -33,7 +33,7 @@ in
             home-manager.useUserPackages = true;
 
             home-manager.extraSpecialArgs = specialArgs;
-            home-manager.users."${myvars.username}".imports = home-modules;
+            home-manager.users."${my.vars.username}".imports = home-modules;
           }
         ]
       );

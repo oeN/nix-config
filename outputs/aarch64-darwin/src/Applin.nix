@@ -4,8 +4,7 @@
   # and these arguments are used in the functions like `mylib.nixosSystem`, `mylib.colmenaSystem`, etc.
   inputs,
   lib,
-  mylib,
-  myvars,
+  my,
   system,
   genSpecialArgs,
   ...
@@ -14,14 +13,14 @@
 
   modules = {
     darwin-modules =
-      (map mylib.relativeToRoot [
+      (map my.lib.relativeToRoot [
         # common
         "modules/darwin"
         # host specific
         "hosts/darwin-${name}"
       ])
       ++ [];
-    home-modules = map mylib.relativeToRoot [
+    home-modules = map my.lib.relativeToRoot [
       # "hosts/darwin-${name}/home.nix"
       "home/darwin"
     ];
@@ -30,5 +29,5 @@
   systemArgs = modules // args;
 in {
   # macOS's configuration
-  darwinConfigurations.${name} = mylib.macosSystem systemArgs;
+  darwinConfigurations.${name} = my.lib.macosSystem systemArgs;
 }

@@ -4,21 +4,20 @@
   # and these arguments are used in the functions like `mylib.nixosSystem`, `mylib.colmenaSystem`, etc.
   inputs,
   lib,
-  myvars,
-  mylib,
+  my,
   system,
   genSpecialArgs,
   ...
 } @ args: let
   name = "umbreon";
   base-modules = {
-    nixos-modules = map mylib.relativeToRoot [
+    nixos-modules = map my.lib.relativeToRoot [
       # common
       "modules/nixos/desktop.nix"
       # host specific
       "hosts/linux-${name}"
     ];
-    home-modules = map mylib.relativeToRoot [
+    home-modules = map my.lib.relativeToRoot [
       # common
       "home/linux"
       # host specific
@@ -27,7 +26,7 @@
   };
 in {
   nixosConfigurations = {
-    "${name}" = mylib.nixosSystem (base-modules // args);
+    "${name}" = my.lib.nixosSystem (base-modules // args);
   };
 
   # generate iso image for hosts with desktop environment

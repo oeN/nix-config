@@ -2,7 +2,7 @@
   pkgs,
   config,
   lib,
-  myvars,
+  my,
   ...
 }:
 with lib; {
@@ -25,7 +25,7 @@ with lib; {
       displayManager = {
         autoLogin = {
           enable = true;
-          user = myvars.username;
+          user = my.vars.username;
         };
       };
 

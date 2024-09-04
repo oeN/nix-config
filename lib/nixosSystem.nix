@@ -6,7 +6,7 @@
   nixos-modules,
   home-modules ? [],
   specialArgs ? (genSpecialArgs system),
-  myvars,
+  my,
   ...
 }: let
   inherit (inputs) nixpkgs home-manager nixos-generators;
@@ -27,7 +27,7 @@ in
             home-manager.useUserPackages = true;
 
             home-manager.extraSpecialArgs = specialArgs;
-            home-manager.users."${myvars.username}".imports = home-modules;
+            home-manager.users."${my.vars.username}".imports = home-modules;
           }
         ]
       );

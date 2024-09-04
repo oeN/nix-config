@@ -1,6 +1,6 @@
-{mylib, ...}: {
+{my, ...}: {
   imports =
-    (mylib.scanPaths ./.)
+    (my.lib.scanPaths ./.)
     ++ [
       ../base.nix
     ];

@@ -12,10 +12,6 @@ in {
     ./hardware-configuration.nix
   ];
 
-  # TODO: move me elsewhere
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
   networking = {
     inherit hostName;
 

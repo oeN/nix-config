@@ -30,7 +30,7 @@ with lib; {
       };
 
       xserver = {
-        # enable = true;
+        enable = true;
         displayManager = {
           gdm.enable = true;
         };

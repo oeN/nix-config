@@ -1,4 +1,8 @@
-{myvars, ...}:
+{
+  nixos-hardware,
+  myvars,
+  ...
+}:
 #############################################################
 #
 #  Ai - my main computer, with NixOS + I5-13600KF + RTX 4090 GPU, for gaming & daily use.
@@ -8,6 +12,7 @@ let
   hostName = "umbreon"; # Define your hostname.
 in {
   imports = [
+    nixos-hardware.nixosModules.lenovo-thinkpad-l14-intel
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];

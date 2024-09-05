@@ -1,20 +1,18 @@
-{lib, ...}: {
-  macosSystem = import ./macosSystem.nix;
-  nixosSystem = import ./nixosSystem.nix;
+# Extension mechanism shamelessly stolen from [1].
+#
+# [1]: https://github.com/hlissner/dotfiles/blob/master/lib/default.nix
+{ lib, pkgs, inputs }:
+let
+  inherit (lib) makeExtensible attrValues foldr;
+  inherit (modules) mapModules;
 
-  relativeToRoot = lib.path.append ../.;
-  scanPaths = path:
-    builtins.map
-    (f: (path + "/${f}"))
-    (builtins.attrNames
-      (lib.attrsets.filterAttrs
-        (
-          path: _type:
-            (_type == "directory") # include directories
-            || (
-              (path != "default.nix") # ignore default.nix
-              && (lib.strings.hasSuffix ".nix" path) # include .nix files
-            )
-        )
-        (builtins.readDir path)));
-}
+  modules = import ./modules.nix {
+    inherit lib;
+    self.attrs = import ./attrs.nix { inherit lib; self = { }; };
+  };
+
+  mylib = makeExtensible (self:
+    mapModules ./. (file: import file { inherit self lib pkgs inputs; })
+  );
+in
+mylib.extend (_self: super: foldr (a: b: a // b) { } (attrValues super))

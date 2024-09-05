@@ -1,9 +1,9 @@
-{my, ...}: {
+{my-user, ...}: {
   programs.git = {
     enable = true;
 
-    userName = my.vars.userfullname;
-    userEmail = my.vars.useremail;
+    userName = my-user.fullName;
+    userEmail = my-user.email;
 
     # files to ignore by default
     ignores = [".DS_Store" ".direnv" ".vscode"];

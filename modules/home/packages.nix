@@ -1,9 +1,12 @@
 {
   pkgs,
-  devenv,
-  my-nixvim,
+  inputs,
   ...
-}: {
+}: let
+  devenv = inputs.devenv;
+  my-nixvim = inputs.my-nixvim;
+in
+{
   home.packages = with pkgs; [
     coreutils
 

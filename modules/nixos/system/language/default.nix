@@ -1,9 +1,11 @@
 # Language settings
-{ config, lib, ... }:
-let
-  cfg = config.my.system.language;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.my.system.language;
+in {
   options.my.system.language = with lib; {
     enable = my.mkDisableOption "language configuration";
 

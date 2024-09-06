@@ -3,8 +3,7 @@ let
   keys = import ../../../keys;
 
   inherit (keys) all;
-in
-{
+in {
   "users/diomedet/hashed-password.age".publicKeys = all;
   "users/root/hashed-password.age".publicKeys = all;
 }

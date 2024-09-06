@@ -52,7 +52,6 @@
   };
 
   nix.settings = {
-
     # substituers that will be considered before the official ones(https://cache.nixos.org)
     substituters = [
       "https://nix-community.cachix.org"

@@ -3,10 +3,10 @@
 
   inputs = {
     # Package sets
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.05-darwin";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -40,7 +40,7 @@
       owner = "hercules-ci";
       repo = "flake-parts";
       ref = "main";
-      inputs = { nixpkgs-lib.follows = "nixpkgs"; };
+      inputs = {nixpkgs-lib.follows = "nixpkgs";};
     };
 
     nix-darwin = {

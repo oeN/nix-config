@@ -1,6 +1,11 @@
 # Nix related settings
-{ config, inputs, lib, pkgs, ... }:
-let
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.my.home.nix;
 
   channels = lib.my.merge [
@@ -17,8 +22,7 @@ let
       nixpkgs = inputs.nixpkgs;
     })
   ];
-in
-{
+in {
   options.my.home.nix = with lib; {
     enable = my.mkDisableOption "nix configuration";
 
@@ -27,7 +31,7 @@ in
 
       addToRegistry = my.mkDisableOption "add inputs and self to registry";
 
-      # addToNixPath = my.mkDisableOption "add inputs and self to nix path";
+      addToNixPath = my.mkDisableOption "add inputs and self to nix path";
 
       overrideNixpkgs = my.mkDisableOption "point nixpkgs to pinned system version";
     };
@@ -51,7 +55,7 @@ in
         package = lib.mkDefault pkgs.nix; # NixOS module sets it unconditionally
 
         settings = {
-          experimental-features = [ "nix-command" "flakes" ];
+          experimental-features = ["nix-command" "flakes"];
 
           extra-substituters = [
             "https://nix-community.cachix.org"
@@ -67,25 +71,22 @@ in
     }
 
     (lib.mkIf cfg.inputs.addToRegistry {
-      nix.registry =
-        let
-          makeEntry = v: { flake = v; };
-          makeEntries = lib.mapAttrs (lib.const makeEntry);
-        in
+      nix.registry = let
+        makeEntry = v: {flake = v;};
+        makeEntries = lib.mapAttrs (lib.const makeEntry);
+      in
         makeEntries channels;
     })
 
     (lib.mkIf cfg.inputs.link {
-      xdg.configFile =
-        let
-          makeLink = n: v: {
-            name = "nix/inputs/${n}";
-            value = { source = v.outPath; };
-          };
-          makeLinks = lib.mapAttrs' makeLink;
-        in
+      xdg.configFile = let
+        makeLink = n: v: {
+          name = "nix/inputs/${n}";
+          value = {source = v.outPath;};
+        };
+        makeLinks = lib.mapAttrs' makeLink;
+      in
         makeLinks channels;
     })
-
   ]);
 }

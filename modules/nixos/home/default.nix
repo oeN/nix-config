@@ -1,11 +1,15 @@
-{ config, inputs, lib, ... }:
-let
-  actualPath = [ "home-manager" "users" config.my.user.name "my" "home" ];
-  aliasPath = [ "my" "home" ];
+{
+  config,
+  inputs,
+  lib,
+  system,
+  ...
+}: let
+  actualPath = ["home-manager" "users" config.my.user.name "my" "home"];
+  aliasPath = ["my" "home"];
 
   cfg = config.my.user.home;
-in
-{
+in {
   imports = [
     inputs.home-manager.nixosModules.home-manager # enable home-manager options
     (lib.mkAliasOptionModule aliasPath actualPath) # simplify setting home options
@@ -26,6 +30,7 @@ in
       # Forward inputs to home-manager configuration
       extraSpecialArgs = {
         inherit inputs;
+        inherit system;
         my-user = config.my.user;
       };
     };

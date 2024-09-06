@@ -1,7 +1,5 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   imports = lib.attrValues (lib.my.mapModules ./. (file: file));
-
 
   options.my = with lib; {
     user = {

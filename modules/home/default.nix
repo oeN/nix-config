@@ -1,5 +1,8 @@
-{ my-user, lib, ... }:
 {
+  my-user,
+  lib,
+  ...
+}: {
   imports = lib.attrValues (lib.my.mapModules ./. (file: file));
 
   programs.home-manager.enable = true;

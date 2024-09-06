@@ -1,9 +1,11 @@
 # Podman related settings
-{ config, lib, ... }:
-let
-  cfg = config.my.system.docker;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.my.system.docker;
+in {
   options.my.system.docker = with lib; {
     enable = mkEnableOption "docker configuration";
   };

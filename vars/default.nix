@@ -1,4 +1,4 @@
-{keys,...}: {
+{keys, ...}: {
   username = "diomedet";
   userfullname = "Diomede Tripicchio";
   useremail = "diomede.tripicchio@gmail.com";

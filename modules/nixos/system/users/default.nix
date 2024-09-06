@@ -1,13 +1,17 @@
 # User setup
-{ self, config, lib, pkgs, ... }:
-let
+{
+  self,
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   keys = import "${self}/keys";
   secrets = config.age.secrets;
   cfg = config.my.system.users;
   groupExists = grp: builtins.hasAttr grp config.users.groups;
   groupsIfExist = builtins.filter groupExists;
-in
-{
+in {
   options.my.system.users = with lib; {
     enable = my.mkDisableOption "user configuration";
   };
@@ -23,7 +27,7 @@ in
         };
 
         ${config.my.user.name} = {
-          hashedPasswordFile = secrets."users/ambroisie/hashed-password".path;
+          hashedPasswordFile = secrets."users/${config.my.user.name}/hashed-password".path;
           description = config.my.user.fullName;
           isNormalUser = true;
           shell = pkgs.zsh;

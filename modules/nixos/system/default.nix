@@ -1,5 +1,4 @@
 # System-related modules
-{ lib, ... }:
-{
+{lib, ...}: {
   imports = lib.attrValues (lib.my.mapModules ./. (file: file));
 }

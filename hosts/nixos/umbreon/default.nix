@@ -8,7 +8,8 @@ in {
     ./hardware.nix
     ./networking.nix
     ./home.nix
-    ./sound.nix
+    #   ./sound.nix
+    #    ./options.nix
   ];
 
   # Set your time zone.

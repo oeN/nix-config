@@ -3,11 +3,11 @@
   lib,
   ...
 }: let
-  cfg = config.my.desktop-manager;
+  cfg = config.my.desktop;
   my-user = config.my.user;
 in {
-  options.my.desktop-manager = with lib; {
-    enable = mkEnableOption "Enable the desktop manager";
+  options.my.desktop = with lib; {
+    enable = my.mkDisableOption "Enable the desktop manager";
   };
 
   config = lib.mkIf cfg.enable {

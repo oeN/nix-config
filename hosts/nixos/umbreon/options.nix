@@ -1,0 +1,3 @@
+{...}: {
+  my.desktop.enabled = true;
+}

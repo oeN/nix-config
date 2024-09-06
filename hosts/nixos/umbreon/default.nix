@@ -2,6 +2,7 @@
 {inputs, ...}: let
   nixos-hardware = inputs.nixos-hardware;
 in {
+  # TODO: fix audio and wezterm that shows only rectangles
   imports = [
     nixos-hardware.nixosModules.lenovo-thinkpad-l14-intel
     ./boot.nix

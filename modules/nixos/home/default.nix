@@ -26,6 +26,7 @@ in {
       # Nix Flakes compatibility
       useGlobalPkgs = true;
       useUserPackages = true;
+      backupFileExtension = "bkp";
 
       # Forward inputs to home-manager configuration
       extraSpecialArgs = {

@@ -12,7 +12,7 @@ in {
     ./networking.nix
     ./home.nix
     #   ./sound.nix
-    #    ./options.nix
+    ./options.nix
   ];
 
   # Set your time zone.

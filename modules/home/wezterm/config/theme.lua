@@ -45,7 +45,7 @@ function module.apply_to_config(config)
   config.font_size = default_font_size
   config.command_palette_font_size = default_font_size
 
-  config.font = wezterm.font 'JetBrains Mono'
+  config.font = wezterm.font 'JetBrainsMono Nerd Font'
 end
 
 return module

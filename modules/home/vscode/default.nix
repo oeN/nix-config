@@ -16,12 +16,14 @@ in {
 
       extensions = with pkgs.vscode-extensions; [
         vscodevim.vim
+        bbenoist.nix
         catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
       ];
 
       userSettings = {
-        "workbench.colorTheme" = "catppuccin";
+        "workbench.colorTheme" = "Catppuccin Macchiato";
+        "vim.useCtrlKeys" = false;
       };
     };
   };

@@ -7,7 +7,7 @@
   my-user = config.my.user;
 in {
   options.my.desktop = with lib; {
-    enable = my.mkDisableOption "Enable the desktop manager";
+    enable = mkEnableOption "Enable the desktop manager";
   };
 
   config = lib.mkIf cfg.enable {

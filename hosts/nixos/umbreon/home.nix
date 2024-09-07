@@ -15,6 +15,6 @@
     # Minimal video player
     mpv.enable = true;
     # Network-Manager applet
-    nm-applet.enable = true;
+    # nm-applet.enable = false;
   };
 }

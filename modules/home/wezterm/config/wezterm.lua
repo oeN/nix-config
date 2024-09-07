@@ -5,7 +5,12 @@ local theme = require 'theme'
 local tab_bar = require 'tab_bar'
 local multiplexing = require 'multiplexing'
 
-local modules = { keys, theme, tab_bar, multiplexing }
+local modules = { 
+  keys, 
+  theme, 
+  tab_bar, 
+  multiplexing 
+}
 
 -- This table will hold the configuration.
 local config = {}
@@ -21,6 +26,8 @@ end
 for i, module in ipairs(modules) do
   module.apply_to_config(config)
 end
+
+config.front_end = "WebGpu"
 
 -- and finally, return the configuration to wezterm
 return config

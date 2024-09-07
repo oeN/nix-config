@@ -65,7 +65,6 @@ in {
         lazygit
 
         dotnet-sdk
-        vscode
 
         devenv.packages.${system}.default
         my-nixvim.packages.${system}.default

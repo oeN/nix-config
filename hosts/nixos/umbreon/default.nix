@@ -4,7 +4,7 @@
 in {
   # TODO: fix audio and wezterm that shows only rectangles
   # TODO: properly configure vscode in a module
-  
+
   imports = [
     nixos-hardware.nixosModules.lenovo-thinkpad-l14-intel
     ./boot.nix

@@ -27,6 +27,8 @@ in {
       kx = "kubectx";
       dc = "docker-compose";
       d = "docker";
+      # TODO: move me under a conditional based on the system
+      nixswitch = "sudo nixos-rebuild switch --flake ~/nix-config/.#";
     };
   };
 }

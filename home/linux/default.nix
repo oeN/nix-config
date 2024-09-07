@@ -1,8 +1,3 @@
-{my, ...}: {
-  home.homeDirectory = "/home/${my.vars.username}";
-  imports =
-    (my.lib.scanPaths ./.)
-    ++ [
-      ../base/home.nix
-    ];
+{lib, ...}: {
+  imports = lib.attrValues (lib.my.mapModules ./. (file: file));
 }

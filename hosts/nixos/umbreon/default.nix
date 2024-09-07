@@ -1,5 +1,9 @@
-# Porthos specific settings
-{inputs, ...}: let
+# Umbreon specific settings
+{
+  self,
+  inputs,
+  ...
+}: let
   nixos-hardware = inputs.nixos-hardware;
 in {
   # TODO: fix audio and wezterm that shows only rectangles

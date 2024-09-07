@@ -22,9 +22,9 @@
             enable = true;
           };
 
-          stylua = {
-            enable = true;
-          };
+          # stylua = {
+          #   enable = true;
+          # };
         };
       };
     };

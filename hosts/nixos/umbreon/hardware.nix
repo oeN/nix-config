@@ -35,13 +35,13 @@
     };
   };
 
-  # hardware = {
-  #   trackpoint = {
-  #     enable = true;
+  hardware = {
+    trackpoint = {
+      enable = true;
 
-  #     emulateWheel = true; # Holding middle buttons allows scrolling
+      emulateWheel = true; # Holding middle buttons allows scrolling
 
-  #     device = "TPPS/2 Elan TrackPoint"; # Use the correct device name
-  #   };
-  # };
+      #     device = "TPPS/2 Elan TrackPoint"; # Use the correct device name
+    };
+  };
 }

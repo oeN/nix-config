@@ -16,6 +16,6 @@ in rec {
   };
 
   home.shellAliases = {
-    nixswitch = "nixos-rebuild switch --flake ~/nix-config/.#";
+    nixswitch = "sudo nixos-rebuild switch --flake ~/nix-config/.#";
   };
 }

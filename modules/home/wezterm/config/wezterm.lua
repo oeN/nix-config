@@ -27,6 +27,7 @@ for i, module in ipairs(modules) do
   module.apply_to_config(config)
 end
 
+-- This is a temporary fix
 config.front_end = "WebGpu"
 
 -- and finally, return the configuration to wezterm

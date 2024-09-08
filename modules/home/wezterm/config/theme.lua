@@ -21,7 +21,7 @@ local function get_active_screen()
       return screens.active
     end
   end
-  return { name = 'Generic' }
+  return { name = 'Generic', effective_dpi = 96 }
 end
 
 local function scheme_for_appearance(appearance)
@@ -33,10 +33,11 @@ local function scheme_for_appearance(appearance)
 end
 
 local function font_size_for_screen(active_screen)
-  if active_screen.name:find 'Built-in' then
+  dpi = active_screen.effective_dpi
+  if dpi and dpi <= 96 then
     return 16.0
   end
-  return 20.0
+  return default_font_size
 end
 
 function module.apply_to_config(config)

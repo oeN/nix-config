@@ -1,6 +1,8 @@
 {
   config,
   lib,
+  system,
+  my-user,
   ...
 }: let
   cfg = config.my.home.zsh;
@@ -9,26 +11,28 @@ in {
     enable = my.mkDisableOption "zsh configuration";
   };
 
-  config = lib.mkIf cfg.enable {
-    programs.zsh = {
-      enable = true;
-      enableCompletion = true;
-      autosuggestion.enable = true;
-      syntaxHighlighting.enable = true;
-      oh-my-zsh = {
+  config = lib.mkIf cfg.enable (lib.mkMerge [
+    {
+      programs.zsh = {
         enable = true;
-        plugins = ["git" "jump" "aws" "kubectl"];
+        enableCompletion = true;
+        autosuggestion.enable = true;
+        syntaxHighlighting.enable = true;
+        oh-my-zsh = {
+          enable = true;
+          plugins = ["git" "jump" "aws" "kubectl"];
+        };
       };
-    };
+    }
 
-    home.shellAliases = {
-      nixup = "pushd ~/nix-config; nix flake update; nixswitch; popd";
-      k = "kubectl";
-      kx = "kubectx";
-      dc = "docker-compose";
-      d = "docker";
-      # TODO: move me under a conditional based on the system
-      nixswitch = "sudo nixos-rebuild switch --flake ~/nix-config/.#";
-    };
-  };
+    (lib.mkIf (system == "aarch64-darwin") {
+      programs.zsh = {
+        initExtra = ''
+          source /Users/${my-user.name}/.config/op/plugins.sh
+          export PATH="/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/3.2.0/bin:$PATH"
+          export LC_ALL=en_US.UTF-8
+        '';
+      };
+    })
+  ]);
 }

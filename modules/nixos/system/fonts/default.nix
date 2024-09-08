@@ -9,6 +9,8 @@
       # icon fonts
       material-design-icons
       font-awesome
+      noto-fonts-color-emoji
+      jetbrains-mono
 
       # nerdfonts
       # https://github.com/NixOS/nixpkgs/blob/nixos-24.05/pkgs/data/fonts/nerdfonts/shas.nix

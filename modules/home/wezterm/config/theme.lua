@@ -26,9 +26,11 @@ end
 
 local function scheme_for_appearance(appearance)
   if appearance:find 'Dark' then
-    return 'Ocean Dark (Gogh)'
+    -- return 'Ocean Dark (Gogh)'
+    return 'Catppuccin Macchiato'
   else
-    return 'Violet Light'
+    -- return 'Violet Light'
+    return 'Catppuccin Latte'
   end
 end
 

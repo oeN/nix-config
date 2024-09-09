@@ -13,9 +13,6 @@
   # Add ability to used TouchID for sudo authentication
   security.pam.enableSudoTouchIdAuth = true;
 
-  # Set your time zone.
-  time.timeZone = "Europe/Rome";
-
   system = {
     # activationScripts are executed every time you boot the system or run `nixos-rebuild` / `darwin-rebuild`.
     activationScripts.postUserActivation.text = ''
@@ -188,30 +185,5 @@
 
   environment = {
     # pathsToLink = ["/Applications"];
-  };
-
-  # Fonts
-  fonts = {
-    packages = with pkgs; [
-      # icon fonts
-      material-design-icons
-      font-awesome
-      recursive
-
-      # nerdfonts
-      # https://github.com/NixOS/nixpkgs/blob/nixos-24.05/pkgs/data/fonts/nerdfonts/shas.nix
-      (nerdfonts.override {
-        fonts = [
-          # symbols icon only
-          "NerdFontsSymbolsOnly"
-          # Characters
-          "FiraCode"
-          "JetBrainsMono"
-          "Iosevka"
-          "FiraMono"
-          "Meslo"
-        ];
-      })
-    ];
   };
 }

@@ -1,38 +1,4 @@
-{pkgs, ...}: {
-  ##########################################################################
-  #
-  #  Install all apps and packages here.
-  #
-  #  NOTE: Your can find all available options in:
-  #    https://daiderd.com/nix-darwin/manual/index.html
-  #
-  ##########################################################################
-
-  # Install packages from nix's official package repository.
-  #
-  # The packages installed here are available to all users, and are reproducible across machines, and are rollbackable.
-  # But on macOS, it's less stable than homebrew.
-  #
-  # Related Discussion: https://discourse.nixos.org/t/darwin-again/29331
-
-  programs.zsh.enable = true;
-  environment = {
-    shells = [pkgs.zsh];
-    variables.EDITOR = "nvim";
-    systemPath = ["/opt/homebrew/bin" "/opt/homebrew/sbin"];
-
-    systemPackages = with pkgs; [
-      neovim
-      git
-
-      gnugrep
-      gnutar
-
-      gcc
-      just # use Justfile to simplify nix-darwin's commands
-    ];
-  };
-
+_: {
   # TODO To make this work, homebrew need to be installed manually, see https://brew.sh
   #
   # The apps installed by homebrew are not managed by nix, and not reproducible!
@@ -76,7 +42,7 @@
       "yubico-authenticator"
       "blender"
       "krita"
-      "visual-studio-code"
+      # "visual-studio-code"
       "contexts"
       "insomnia"
       "vlc"

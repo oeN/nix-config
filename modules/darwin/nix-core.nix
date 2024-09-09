@@ -1,5 +1,6 @@
 {lib, ...}: {
-  # Allow unfree packages
+  # TODO: remove me if no errors are found.
+  # # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # Auto upgrade nix package and the daemon service.

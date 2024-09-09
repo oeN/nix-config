@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  inherit (inputs) nixpkgs-darwin nix-darwin;
+  inherit (inputs) nix-darwin;
 
   defaultModules = [
     {
@@ -12,7 +12,11 @@
       system.configurationRevision = self.rev or "dirty";
     }
     {
-      nixpkgs.pkgs = nixpkgs-darwin;
+      nixpkgs.overlays =
+        (lib.attrValues self.overlays)
+        ++ [
+          inputs.nur.overlay
+        ];
     }
     # Include generic settings
     "${self}/modules/darwin"
@@ -20,10 +24,21 @@
 
   buildHost = name: system:
     nix-darwin.lib.darwinSystem {
+      # inputs.nixpkgs.config.allowUnfree = true;
       inherit system;
       modules =
         defaultModules
         ++ [
+          # {
+          #   nixpkgs = {
+          #     pkgs = import nixpkgs-darwin {inherit system;};
+          #     hostPlatform = system;
+          #     # config = {
+          #     #   allowAliases = true;
+          #     #   allowUnfree = true;
+          #     # };
+          #   };
+          # }
           "${self}/hosts/darwin/${name}"
         ];
       specialArgs = {
@@ -31,6 +46,7 @@
         inherit (self) lib;
         # Inject inputs to use them in global registry
         inherit inputs;
+        inherit system;
       };
     };
 in {

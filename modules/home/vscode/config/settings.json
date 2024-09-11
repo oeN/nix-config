@@ -1,0 +1,246 @@
+{
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/.git": true,
+    "**/tmp": true,
+    "**/coverage": true,
+    "vendor/remote_gems": true,
+    "public": true
+  },
+  "sync.gist": "da4288ef978ae595cf9ba40b133810ed",
+
+  "gitlens.codeLens.authors.enabled": false,
+  "gitlens.codeLens.recentChange.enabled": false,
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false
+  },
+  "gitlens.keymap": "alternate",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // Save file
+    {
+      "before": [
+        "leader",
+        "b",
+        "s"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.files.save"
+        }
+      ]
+    },
+    // Window Movement
+    {
+      "before": [
+        "leader",
+        "T"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.terminal.focus"
+        }
+      ]
+    },
+    // Explorer
+    {
+      "before": [
+        "leader",
+        "m"
+      ],
+      "commands": [
+        {
+          "command": "workbench.action.toggleSidebarVisibility"
+        }
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "n"
+      ],
+      "commands": [
+        {
+          "command": "workbench.files.action.showActiveFileInExplorer"
+        }
+      ]
+    },
+    // Make RSpec shortcut the same as vim-rspec
+    {
+      "before": [
+        "leader",
+        "t"
+      ],
+      "commands": [
+        {
+          "command": "extension.runFileSpecs"
+        }
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "l"
+      ],
+      "commands": [
+        {
+          "command": "extension.runLastSpec"
+        }
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "s"
+      ],
+      "commands": [
+        {
+          "command": "extension.runSpecLine"
+        }
+      ]
+    }
+  ],
+  // Do not move the explorer to the current opened file do it when needed
+  "explorer.autoReveal": false,
+  // Do not show the opened editors
+  "explorer.openEditors.visible": 0,
+  "godot_tools.editor_path": "/usr/local/bin/godot",
+  "explorer.confirmDragAndDrop": false,
+  "editor.selectionClipboard": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "git.suggestSmartCommit": false,
+  "vs-kubernetes": {
+    "vs-kubernetes.namespace": "",
+    "vs-kubernetes.kubectl-path": "/snap/bin/kubectl",
+    "vs-kubernetes.helm-path": "",
+    "vs-kubernetes.draft-path": "",
+    "vs-kubernetes.minikube-path": "",
+    "vs-kubernetes.kubectlVersioning": "user-provided",
+    "vs-kubernetes.outputFormat": "yaml",
+    "vs-kubernetes.kubeconfig": "~/.kube/config",
+    "vs-kubernetes.knownKubeconfigs": [],
+    "vs-kubernetes.autoCleanupOnDebugTerminate": false,
+    "vs-kubernetes.nodejs-autodetect-remote-root": true,
+    "vs-kubernetes.nodejs-remote-root": "",
+    "vs-kubernetes.nodejs-debug-port": 9229,
+    "checkForMinikubeUpgrade": true,
+    "logsDisplay": "webview",
+    "imageBuildTool": "Docker",
+    "vscode-kubernetes.helm-path.linux": "/home/diomedet/.vs-kubernetes/tools/helm/linux-amd64/helm",
+    "vscode-kubernetes.minikube-path.linux": "/home/diomedet/.vs-kubernetes/tools/minikube/linux-amd64/minikube",
+    "vscode-kubernetes.kubectl-path.linux": "/home/diomedet/.vs-kubernetes/tools/kubectl/kubectl"
+  },
+  "remote.SSH.remotePlatform": {
+    "10.10.1.70": "linux",
+    "10.10.0.36": "linux",
+    "10.10.20.24": "linux",
+    "10.10.20.48": "linux",
+    "10.10.5.5": "linux",
+    "heracross": "linux"
+  },
+  "go.useLanguageServer": true,
+  "vsicons.dontShowNewVersionMessage": true,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "explorer.confirmDelete": false,
+  "editor.cursorStyle": "line",
+  "editor.lineNumbers": "on",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "security.workspace.trust.untrustedFiles": "open",
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "redhat.telemetry.enabled": false,
+  "workbench.preferredDarkColorTheme": "Gruvbox Dark (Medium)",
+  "workbench.preferredLightColorTheme": "Gruvbox Light (Medium)",
+  "Lua.telemetry.enable": true,
+  "git.autofetch": true,
+  "remote.SSH.defaultExtensions": [
+    "gitpod.gitpod-remote-ssh"
+  ],
+  "remote.SSH.configFile": "/Users/diomedet/.ssh/config",
+  "gitlens.currentLine.scrollable": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.currentLine.enabled": false,
+  "gitlens.codeLens.enabled": false,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[rust]": {
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-python.python"
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "godot_tools.gdscript_lsp_server_port": 6005,
+  "npm.keybindingsChangedWarningShown": true,
+  "[csharp]": {
+    "editor.defaultFormatter": "ms-dotnettools.csharp",
+    "editor.formatOnSave": true
+  },
+  "[html]": {
+    "editor.formatOnSave": false
+  },
+  "omnisharp.useModernNet": false,
+  "settingsSync.ignoredSettings": [
+    "-omnisharp.monoPath",
+    "-python.formatting.autopep8Path",
+    "-window.zoomLevel"
+  ],
+  "files.autoSave": "onFocusChange",
+  "debug.onTaskErrors": "abort",
+  "git.openRepositoryInParentFolders": "never",
+  "omnisharp.organizeImportsOnFormat": true,
+  "omnisharp.disableMSBuildDiagnosticWarning": true,
+  "omnisharp.useEditorFormattingSettings": true,
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "yaml": true,
+    "ini": false,
+    "terraform": false
+  },
+  "window.autoDetectColorScheme": true,
+  "html.format.enable": false,
+  "[nix]": {
+    "editor.defaultFormatter": "brettm12345.nixfmt-vscode"
+  },
+  "colorize.languages": [
+    "lua",
+    "css",
+    "sass",
+    "scss",
+    "less",
+    "postcss",
+    "sss",
+    "stylus",
+    "xml",
+    "svg"
+  ],
+  "godotTools.editorPath.godot3": "/usr/local/bin/godot",
+  "godotTools.editorPath.godot4": "/usr/local/bin/godot",
+  "godotTools.lsp.serverPort": 6005,
+  "remote.SSH.useLocalServer": false,
+  "pixelbyte.love2d.path": "/Users/diomedet/Applications/love.app/Contents/MacOS/love"
+}

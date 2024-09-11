@@ -36,9 +36,14 @@
   "workbench.preferredLightColorTheme" = "Catppuccin Latte";
   "window.autoDetectColorScheme" = true;
   # icons
-  "workbench.iconTheme" = "catppuccin-latte";
+  "workbench.iconTheme" = "vscode-icons";
+  "vsicons.presets.hideExplorerArrows" = true;
   "catppuccin-icons.hidesExplorerArrows" = true;
-  "catppuccin.syncWithIconPack" = true;
+  # the settings.json is not writable it cannot switch icon pack
+  "catppuccin.syncWithIconPack" = false;
+  # "catppuccin-icons.monochrome" = true;
+
+  "vsicons.dontShowNewVersionMessage" = true;
   # vim
   "vim.useCtrlKeys" = false;
   "vim.leader" = "<space>";

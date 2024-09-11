@@ -25,6 +25,8 @@ in {
 
         arrterian.nix-env-selector
         kamadorueda.alejandra
+
+        vscode-icons-team.vscode-icons
       ];
 
       userSettings = import ./user-settings.nix;

@@ -2,6 +2,10 @@
   # Do not import anything by default each module will be imported by the given
   # nixos or darwin specific module if needed.
 
+  imports = [
+    ./blender
+  ];
+
   options.my = with lib; {
     user = {
       fullName = mkOption {

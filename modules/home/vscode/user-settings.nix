@@ -10,7 +10,7 @@
   "editor.formatOnSave" = true;
 
   "workbench.startupEditor" = "newUntitledFile";
-  "window.zoomLevel"= 1;
+  "window.zoomLevel" = 1;
 
   # everything is managed by nix
   "sync.autoDownload" = false;
@@ -27,7 +27,7 @@
   "workbench.preferredLightColorTheme" = "Catppuccin Latte";
   "window.autoDetectColorScheme" = true;
   # icons
-  "workbench.iconTheme" = "catppuccin-macchiato";
+  "workbench.iconTheme" = "catppuccin-latte";
   "catppuccin-icons.hidesExplorerArrows" = true;
   "catppuccin.syncWithIconPack" = true;
   # vim

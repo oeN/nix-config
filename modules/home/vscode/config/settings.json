@@ -9,7 +9,6 @@
     "public": true
   },
   "sync.gist": "da4288ef978ae595cf9ba40b133810ed",
-
   "gitlens.codeLens.authors.enabled": false,
   "gitlens.codeLens.recentChange.enabled": false,
   "gitlens.advanced.messages": {
@@ -105,13 +104,6 @@
       ]
     }
   ],
-  // Do not move the explorer to the current opened file do it when needed
-  "explorer.autoReveal": false,
-  // Do not show the opened editors
-  "explorer.openEditors.visible": 0,
-  "godot_tools.editor_path": "/usr/local/bin/godot",
-  "explorer.confirmDragAndDrop": false,
-  "editor.selectionClipboard": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "git.suggestSmartCommit": false,
   "vs-kubernetes": {
@@ -149,8 +141,6 @@
     "*.ipynb": "jupyter-notebook"
   },
   "explorer.confirmDelete": false,
-  "editor.cursorStyle": "line",
-  "editor.lineNumbers": "on",
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "security.workspace.trust.untrustedFiles": "open",
   "notebook.cellToolbarLocation": {
@@ -158,8 +148,6 @@
     "jupyter-notebook": "left"
   },
   "redhat.telemetry.enabled": false,
-  "workbench.preferredDarkColorTheme": "Gruvbox Dark (Medium)",
-  "workbench.preferredLightColorTheme": "Gruvbox Light (Medium)",
   "Lua.telemetry.enable": true,
   "git.autofetch": true,
   "remote.SSH.defaultExtensions": [
@@ -205,7 +193,6 @@
     "-python.formatting.autopep8Path",
     "-window.zoomLevel"
   ],
-  "files.autoSave": "onFocusChange",
   "debug.onTaskErrors": "abort",
   "git.openRepositoryInParentFolders": "never",
   "omnisharp.organizeImportsOnFormat": true,
@@ -238,9 +225,6 @@
     "xml",
     "svg"
   ],
-  "godotTools.editorPath.godot3": "/usr/local/bin/godot",
-  "godotTools.editorPath.godot4": "/usr/local/bin/godot",
-  "godotTools.lsp.serverPort": 6005,
   "remote.SSH.useLocalServer": false,
   "pixelbyte.love2d.path": "/Users/diomedet/Applications/love.app/Contents/MacOS/love"
 }

@@ -8,9 +8,18 @@
   "editor.wordWrap" = "off";
   "editor.renderWhitespace" = "all";
   "editor.formatOnSave" = true;
+  "editor.cursorStyle" = "line";
+  "editor.lineNumbers" = "on";
+
+  "files.autoSave" = "onFocusChange";
 
   "workbench.startupEditor" = "newUntitledFile";
   "window.zoomLevel" = 1;
+
+  "explorer.confirmDragAndDrop" = false;
+  "editor.selectionClipboard" = false;
+  "explorer.autoReveal" = false;
+  "explorer.openEditors.visible" = 0;
 
   # everything is managed by nix
   "sync.autoDownload" = false;

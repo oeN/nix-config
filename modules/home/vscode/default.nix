@@ -19,6 +19,12 @@ in {
         bbenoist.nix
         catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
+
+        ms-python.vscode-pylance
+        editorconfig.editorconfig
+
+        arrterian.nix-env-selector
+        kamadorueda.alejandra
       ];
 
       userSettings = import ./user-settings.nix;

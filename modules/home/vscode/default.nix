@@ -14,22 +14,25 @@ in {
     programs.vscode = {
       enable = true;
 
-      extensions = with pkgs.vscode-extensions; [
-        vscodevim.vim
-        bbenoist.nix
-        catppuccin.catppuccin-vsc
-        catppuccin.catppuccin-vsc-icons
+      # for now is more convenient to use the user settings and extensions
+      # directly from vscode and sync it through github gist
 
-        ms-python.vscode-pylance
-        editorconfig.editorconfig
+      # extensions = with pkgs.vscode-extensions; [
+      #   vscodevim.vim
+      #   bbenoist.nix
+      #   catppuccin.catppuccin-vsc
+      #   catppuccin.catppuccin-vsc-icons
 
-        arrterian.nix-env-selector
-        kamadorueda.alejandra
+      #   ms-python.vscode-pylance
+      #   editorconfig.editorconfig
 
-        vscode-icons-team.vscode-icons
-      ];
+      #   arrterian.nix-env-selector
+      #   kamadorueda.alejandra
 
-      userSettings = import ./user-settings.nix;
+      #   vscode-icons-team.vscode-icons
+      # ];
+
+      # userSettings = import ./user-settings.nix;
     };
   };
 }

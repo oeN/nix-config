@@ -2,6 +2,7 @@
   "editor.fontSize" = 19;
   "editor.fontFamily" = "FiraMono Nerd Font Mono";
   "editor.fontLigatures" = true;
+  "editor.fontVariations" = true;
   "editor.rulers" = [80 100];
   "editor.minimap.enabled" = false;
   "editor.tabSize" = 2;

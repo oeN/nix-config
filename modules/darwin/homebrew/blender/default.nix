@@ -5,9 +5,7 @@
 }: let
   cfg = config.my.homebrew.blender;
 in {
-  options.my.homebrew.blender = with lib; {
-    enable = mkEnableOption "blender configuration";
-  };
+  # option defined in the base module
 
   config.homebrew = lib.mkIf cfg.enable {
     casks = ["blender"];

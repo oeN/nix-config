@@ -10,6 +10,11 @@ in {
     enable = my.mkDisableOption "blender configuration";
   };
 
+  # FIXME: this shouldn't be declared here
+  options.my.homebrew.blender = with lib; {
+    enable = mkEnableOption "blender configuration";
+  };
+
   config.my = lib.mkMerge [
     (lib.mkIf pkgs.stdenv.isLinux {
       home.blender.enable = cfg.enable;

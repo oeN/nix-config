@@ -1,8 +1,4 @@
-{
-  self,
-  pkgs,
-  ...
-}: {
+{...}: {
   imports = [
     ../../../base/fonts
   ];

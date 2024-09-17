@@ -10,7 +10,7 @@
   cfg = config.my.services.mdns;
 in {
   options.my.services.mdns = {
-    enable = lib.mkDisableOption "mDNS using 'Avahi'";
+    enable = lib.my.mkDisableOption "mDNS using 'Avahi'";
   };
 
   config = lib.mkIf cfg.enable {

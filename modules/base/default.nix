@@ -4,6 +4,7 @@
 
   imports = [
     ./blender
+    ./whatsapp
   ];
 
   options.my = with lib; {

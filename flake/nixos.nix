@@ -39,5 +39,6 @@
 in {
   flake.nixosConfigurations = lib.mapAttrs buildHost {
     umbreon = "x86_64-linux";
+    scyther = "x86_64-linux";
   };
 }

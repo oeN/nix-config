@@ -10,6 +10,7 @@ in {
     lib.attrValues (lib.my.mapModules ./. (file: file))
     ++ [
       # ../common/hardware-overrides.nix
+      ../../../roles/homelab-worker.nix
     ];
 
   time.timeZone = "Europe/Rome";

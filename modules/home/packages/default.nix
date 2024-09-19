@@ -28,6 +28,7 @@ in {
     };
   };
 
+  # FIXME: if possibile, each package should have its own configuration
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; ([
         fd
@@ -49,7 +50,6 @@ in {
 
         # messaging
         slack
-        discord
 
         cachix
 

@@ -3,7 +3,9 @@
   lib,
   inputs,
   ...
-}: {
+}: let
+  hostname = config.networking.hostName;
+in {
   imports = [inputs.agenix.nixosModules.age];
 
   config.age = {
@@ -24,6 +26,6 @@
     in
       lib.mapAttrs' convertSecrets secrets;
 
-    identityPaths = ["/home/diomedet/.ssh/umbreon"];
+    identityPaths = ["/home/diomedet/.ssh/${hostname}"];
   };
 }

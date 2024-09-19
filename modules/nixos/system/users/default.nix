@@ -1,12 +1,11 @@
 # User setup
 {
-  self,
   config,
   lib,
   pkgs,
   ...
 }: let
-  keys = import "${self}/keys";
+  keys = import ../../../../keys;
   secrets = config.age.secrets;
   cfg = config.my.system.users;
   groupExists = grp: builtins.hasAttr grp config.users.groups;
@@ -23,7 +22,7 @@ in {
       users = {
         root = {
           hashedPasswordFile = secrets."users/root/hashed-password".path;
-          openssh.authorizedKeys.keys = keys.users;
+          openssh.authorizedKeys.keys = builtins.attrValues keys.users;
         };
 
         ${config.my.user.name} = {
@@ -41,7 +40,7 @@ in {
             "video" # screen control
             "wheel" # `sudo` for the user.
           ];
-          openssh.authorizedKeys.keys = keys.users;
+          openssh.authorizedKeys.keys = builtins.attrValues keys.users;
         };
       };
     };

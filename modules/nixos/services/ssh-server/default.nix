@@ -16,8 +16,8 @@ in {
       enable = true;
 
       settings = {
-        # Be more secure
-        PermitRootLogin = "no";
+        # temporary allow root login
+        PermitRootLogin = "yes";
         PasswordAuthentication = false;
       };
     };

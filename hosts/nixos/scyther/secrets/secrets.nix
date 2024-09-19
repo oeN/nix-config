@@ -2,7 +2,7 @@
 let
   keys = import ../../../../keys;
 
-  all = [keys.hosts.scyther keys.users];
+  all = [keys.hosts.scyther] ++ (builtins.attrValues keys.users);
 in {
   "scaleway-credentials.age".publicKeys = all;
   "backup/password.age".publicKeys = all;

@@ -4,7 +4,7 @@
   nameservers = ["10.10.20.154" "8.8.8.8"];
   defaultGatewayIp = "10.10.20.2";
   hostname = "heracross";
-  domain = "local";
+  domain = "hl.diomedet.com";
 in {
   networking = {
     hostName = hostname;

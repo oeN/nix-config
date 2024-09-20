@@ -23,5 +23,11 @@ in {
         userServices = true;
       };
     };
+
+    # allow for custom hostnames
+    system.nssDatabases.hosts = lib.mkForce ["mdsn4"];
+
+    # allow for custom domain names
+    environment.etc."mdns.allow".text = config.networking.domain;
   };
 }

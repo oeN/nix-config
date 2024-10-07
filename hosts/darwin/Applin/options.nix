@@ -8,14 +8,16 @@
     gamedev = {
       enable = false;
     };
+  };
 
-    # nix = {
-    #   inputs = {
-    #     link = false;
-    #     addToRegistry = false;
-    #     addToNixPath = false;
-    #     overrideNixpkgs = false;
-    #   };
-    # };
+  my.system = {
+    nix = {
+      inputs = {
+        # link = false;
+        # addToRegistry = false;
+        # addToNixPath = false;
+        overrideNixpkgs = false;
+      };
+    };
   };
 }

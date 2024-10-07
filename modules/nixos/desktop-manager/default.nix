@@ -36,7 +36,10 @@ in {
         desktopManager.gnome.enable = true;
 
         # Configure keymap in X11
-        xkb.layout = "us";
+        xkb = {
+          layout = "us";
+          options = "caps:escape";
+        };
 
         excludePackages = with pkgs; [xterm];
       };

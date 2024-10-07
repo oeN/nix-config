@@ -17,6 +17,7 @@ in {
     services.avahi = {
       enable = true;
       nssmdns4 = true;
+#      domainName = config.networking.domain;
       publish = {
         enable = true;
         domain = true;
@@ -25,9 +26,17 @@ in {
     };
 
     # allow for custom hostnames
-    system.nssDatabases.hosts = lib.mkForce ["mdsn4"];
-
-    # allow for custom domain names
-    environment.etc."mdns.allow".text = config.networking.domain;
+#    system.nssDatabases.hosts = lib.mkForce [
+#      "mdsn4"
+#      "[NOTFOUND=return]"
+#      "resolve"
+#      "[!UNAVAIL=return]"
+#      "files"
+#      "myhostname"
+#      "dns"
+#    ];
+#
+#    # allow for custom domain names
+#    environment.etc."mdns.allow".text = config.networking.domain;
   };
 }

@@ -34,6 +34,7 @@
     # `brew install --cask`
     casks = [
       "firefox"
+      "actual"
       "raycast"
       "1password"
       "1password-cli"

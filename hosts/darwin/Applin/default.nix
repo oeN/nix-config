@@ -12,4 +12,6 @@ in {
 
   # Set your time zone.
   time.timeZone = "Europe/Rome";
+
+  system.stateVersion = 5;
 }
